@@ -19,7 +19,9 @@ export default function PrivacyPage() {
         </p>
         <p>
           We do not sell your information. Forms are stored for follow-up and,
-          when email delivery is configured, forwarded to {site.email}.
+          when email delivery is configured, forwarded to {site.email}. Some
+          product links on this site are affiliate links; Hollie may earn a
+          commission if you buy through them.
         </p>
         <p>
           Workouts and nutrition coaching are educational and not medical advice.

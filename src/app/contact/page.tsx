@@ -14,6 +14,7 @@ const interestMap: Record<string, string> = {
   transform: "1:1 Transform coaching",
   live: "Live STRONG class",
   blueprint: "Free Full-Body Blueprint",
+  apparel: "STRONG apparel",
 };
 
 export default async function ContactPage({

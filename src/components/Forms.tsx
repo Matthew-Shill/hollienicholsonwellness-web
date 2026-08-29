@@ -115,6 +115,7 @@ export function ContactForm({ defaultInterest }: { defaultInterest?: string }) {
           "1:1 Transform coaching",
           "Live STRONG class",
           "Free Full-Body Blueprint",
+          "STRONG apparel",
           "Something else",
         ].map((opt) => (
           <option key={opt} value={opt}>

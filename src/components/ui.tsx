@@ -23,11 +23,24 @@ export function Button({
       "bg-cream text-ink border-cream hover:bg-white",
   }[variant];
 
+  const classNameFull = `inline-flex items-center justify-center border px-6 py-3 text-[11px] font-medium tracking-[0.22em] uppercase transition-colors ${styles} ${className}`;
+  const external = href.startsWith("http://") || href.startsWith("https://");
+
+  if (external) {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={classNameFull}
+      >
+        {children}
+      </a>
+    );
+  }
+
   return (
-    <Link
-      href={href}
-      className={`inline-flex items-center justify-center border px-6 py-3 text-[11px] font-medium tracking-[0.22em] uppercase transition-colors ${styles} ${className}`}
-    >
+    <Link href={href} className={classNameFull}>
       {children}
     </Link>
   );
