@@ -18,7 +18,7 @@ export default function TransformPage() {
           alt="Hollie preparing a protein shake"
           fill
           priority
-          className="object-cover object-center opacity-55"
+          className="object-cover object-[center_8%] opacity-55"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/75 to-ink/20" />
         <div className="relative mx-auto flex min-h-[75vh] max-w-6xl items-center px-5 py-20 sm:px-8 lg:px-12">

@@ -94,7 +94,7 @@ export default function HomePage() {
               src="/images/hollie-goblet.jpg"
               alt="Hollie holding a dumbbell in her studio"
               fill
-              className="object-cover"
+              className="object-cover object-[center_22%]"
             />
           </div>
           <div className="flex flex-col justify-center px-5 py-16 sm:px-10 lg:px-14">
@@ -139,12 +139,13 @@ export default function HomePage() {
               href={program.href}
               className="group overflow-hidden border border-ink/10 bg-paper"
             >
-              <div className="relative h-64">
+              <div className="relative aspect-square">
                 <Image
                   src={program.image}
                   alt=""
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  style={{ objectPosition: program.imagePosition }}
                 />
               </div>
               <div className="p-6 sm:p-8">
@@ -220,7 +221,7 @@ export default function HomePage() {
           src="/images/hollie-rack.jpg"
           alt="Hollie training with a resistance band"
           fill
-          className="object-cover opacity-35"
+          className="object-cover object-[center_12%] opacity-35"
         />
         <div className="relative mx-auto max-w-6xl px-5 py-24 sm:px-8 lg:px-12">
           <Eyebrow>STRONG Studio</Eyebrow>

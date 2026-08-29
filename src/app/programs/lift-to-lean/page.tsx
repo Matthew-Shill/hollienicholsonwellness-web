@@ -88,7 +88,7 @@ export default function LiftToLeanPage() {
               src="/images/hollie-band.jpg"
               alt="Hollie training with a resistance band"
               fill
-              className="object-cover"
+              className="object-cover object-[center_5%]"
             />
           </div>
         </div>

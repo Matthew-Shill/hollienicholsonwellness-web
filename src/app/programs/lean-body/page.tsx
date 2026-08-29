@@ -78,7 +78,7 @@ export default function LeanBodyPage() {
               src="/images/hollie-squat.jpg"
               alt="Follow-along strength workout"
               fill
-              className="object-cover"
+              className="object-cover object-[center_22%]"
             />
           </div>
           <div className="px-5 py-16 sm:px-10">

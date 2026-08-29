@@ -30,12 +30,13 @@ export default function ProgramsPage() {
               href={program.href}
               className="group grid overflow-hidden border border-ink/10 bg-paper lg:grid-cols-2"
             >
-              <div className="relative min-h-[280px]">
+              <div className="relative aspect-[4/5]">
                 <Image
                   src={program.image}
                   alt=""
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  style={{ objectPosition: program.imagePosition }}
                 />
               </div>
               <div className="flex flex-col justify-center p-8 sm:p-12">

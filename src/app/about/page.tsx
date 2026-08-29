@@ -72,7 +72,7 @@ export default function AboutPage() {
               src="/images/hollie-curl.jpg"
               alt="Hollie curling dumbbells"
               fill
-              className="object-cover"
+              className="object-cover object-[center_15%]"
             />
           </div>
           <div className="px-5 py-16 sm:px-10 lg:px-14">

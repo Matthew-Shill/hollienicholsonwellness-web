@@ -17,7 +17,7 @@ export default function LivePage() {
           alt="Hollie leading a STRONG workout"
           fill
           priority
-          className="object-cover opacity-60"
+          className="object-cover object-[center_15%] opacity-60"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-ink/25" />
         <div className="relative mx-auto flex min-h-[75vh] max-w-6xl items-end px-5 py-16 sm:px-8 lg:px-12">

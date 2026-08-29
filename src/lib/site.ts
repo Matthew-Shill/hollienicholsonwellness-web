@@ -34,6 +34,7 @@ export const programs = [
     href: "/programs/lean-body",
     cta: "Join for $19",
     image: "/images/hollie-squat.jpg",
+    imagePosition: "center top",
     featured: true,
   },
   {
@@ -46,6 +47,7 @@ export const programs = [
     href: "/programs/lift-to-lean",
     cta: "Start Lift to Lean",
     image: "/images/hollie-band.jpg",
+    imagePosition: "center top",
     featured: false,
   },
   {
@@ -58,6 +60,7 @@ export const programs = [
     href: "/programs/vip",
     cta: "Join VIP",
     image: "/images/hollie-rack.jpg",
+    imagePosition: "center 12%",
     featured: false,
   },
   {
@@ -70,6 +73,7 @@ export const programs = [
     href: "/programs/transform",
     cta: "Book a discovery call",
     image: "/images/hollie-protein.jpg",
+    imagePosition: "center top",
     featured: false,
   },
 ] as const;

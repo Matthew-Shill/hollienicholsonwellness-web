@@ -27,7 +27,7 @@ export default function VipPage() {
           alt="Hollie training in the STRONG studio"
           fill
           priority
-          className="object-cover opacity-55"
+          className="object-cover object-[center_12%] opacity-55"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/50 to-ink/30" />
         <div className="relative mx-auto flex min-h-[80vh] max-w-6xl items-end px-5 py-20 sm:px-8 lg:px-12">
@@ -82,7 +82,7 @@ export default function VipPage() {
               src="/images/hollie-vip.jpg"
               alt="Hollie"
               fill
-              className="object-cover"
+              className="object-cover object-[center_12%]"
             />
           </div>
           <div className="px-5 py-16 sm:px-10">

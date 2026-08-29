@@ -32,7 +32,7 @@ export default function StartPage() {
               src="/images/hollie-blueprint-2.jpg"
               alt="Hollie demonstrating a workout"
               fill
-              className="object-cover"
+              className="object-cover object-[center_12%]"
               priority
             />
           </div>
