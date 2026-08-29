@@ -94,7 +94,7 @@ export default function HomePage() {
               src="/images/hollie-goblet.jpg"
               alt="Hollie holding a dumbbell in her studio"
               fill
-              className="object-cover object-[center_22%]"
+              className="object-cover"
             />
           </div>
           <div className="flex flex-col justify-center px-5 py-16 sm:px-10 lg:px-14">
@@ -221,7 +221,7 @@ export default function HomePage() {
           src="/images/hollie-rack.jpg"
           alt="Hollie training with a resistance band"
           fill
-          className="object-cover object-[center_12%] opacity-35"
+          className="object-cover object-[center_28%] opacity-35"
         />
         <div className="relative mx-auto max-w-6xl px-5 py-24 sm:px-8 lg:px-12">
           <Eyebrow>STRONG Studio</Eyebrow>
