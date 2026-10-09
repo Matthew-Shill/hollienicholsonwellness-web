@@ -2,57 +2,48 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { nav, site } from "@/lib/site";
 
 export function Header() {
-  const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-ink text-cream">
+    <header className="sticky top-0 z-50 border-b border-ink/10 bg-cream/90 text-ink backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-5 py-3 sm:px-8 lg:px-12">
         <Link href="/" className="shrink-0" onClick={() => setOpen(false)}>
+          {/* Logo slot: swap public/brand/logo.png when final mark is chosen */}
           <Image
             src="/brand/logo.png"
             alt={`${site.name} — ${site.tagline}`}
             width={420}
             height={80}
-            className="h-10 w-auto sm:h-11"
+            className="h-9 w-auto invert sm:h-10"
             priority
           />
         </Link>
 
-        <nav className="hidden items-center gap-6 lg:flex">
-          {nav.map((item) => {
-            const active =
-              item.href.startsWith("/#")
-                ? false
-                : pathname === item.href || pathname.startsWith(`${item.href}/`);
-            return (
+        <nav className="hidden items-center gap-7 lg:flex">
+          {nav.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`text-[11px] tracking-[0.22em] uppercase transition-opacity ${
-                  active ? "opacity-100" : "opacity-70 hover:opacity-100"
-                }`}
+                className="text-[11px] font-semibold tracking-[0.2em] uppercase text-ink/65 transition-colors hover:text-teal"
               >
                 {item.label}
               </Link>
-            );
-          })}
+            ))}
           <Link
             href="/programs/collective"
-            className="border border-blush bg-blush px-4 py-2 text-[11px] tracking-[0.22em] uppercase text-cream hover:bg-cream hover:text-ink hover:border-cream"
+            className="bg-teal px-4 py-2.5 text-[11px] font-semibold tracking-[0.2em] uppercase text-cream transition-colors hover:bg-teal-deep"
           >
-            Join
+            Start here
           </Link>
         </nav>
 
         <button
           type="button"
-          className="lg:hidden text-[11px] tracking-[0.22em] uppercase"
+          className="lg:hidden text-[11px] font-semibold tracking-[0.2em] uppercase"
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-label="Toggle menu"
@@ -62,24 +53,24 @@ export function Header() {
       </div>
 
       {open ? (
-        <div className="border-t border-white/15 px-5 py-6 lg:hidden">
+        <div className="border-t border-ink/10 px-5 py-6 lg:hidden">
           <nav className="flex flex-col gap-4">
             {nav.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setOpen(false)}
-                className="text-sm tracking-[0.2em] uppercase"
-              >
-                {item.label}
-              </Link>
-            ))}
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  className="text-sm font-semibold tracking-[0.18em] uppercase"
+                >
+                  {item.label}
+                </Link>
+              ))}
             <Link
               href="/programs/collective"
               onClick={() => setOpen(false)}
-              className="mt-2 border border-blush bg-blush px-4 py-3 text-center text-[11px] tracking-[0.22em] uppercase text-cream"
+              className="mt-2 bg-teal px-4 py-3 text-center text-[11px] font-semibold tracking-[0.2em] uppercase text-cream"
             >
-              Join the Collective
+              Start here
             </Link>
           </nav>
         </div>

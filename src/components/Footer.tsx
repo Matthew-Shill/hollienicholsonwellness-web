@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { footerNav, nav, site } from "@/lib/site";
+import { footerNav, site } from "@/lib/site";
 
 export function Footer() {
   return (
@@ -12,29 +12,23 @@ export function Footer() {
             alt={site.name}
             width={420}
             height={80}
-            className="h-12 w-auto"
+            className="h-11 w-auto"
           />
           <p className="mt-6 max-w-sm text-sm leading-relaxed text-cream/70">
-            Strength, nutrition, and coaching for busy women who want a body they
-            actually want to live in.
+            Progressive strength and practical nutrition for women who want a
+            body they actually want to live in — and parents raising the next
+            generation of athletes.
           </p>
         </div>
 
         <div className="lg:col-span-3">
-          <p className="text-[11px] tracking-[0.28em] uppercase text-cream/50">
+          <p className="text-[11px] font-semibold tracking-[0.24em] uppercase text-teal">
             Explore
           </p>
           <ul className="mt-4 space-y-2 text-sm">
-            {nav.map((item) => (
-              <li key={item.href}>
-                <Link href={item.href} className="hover:text-blush">
-                  {item.label}
-                </Link>
-              </li>
-            ))}
             {footerNav.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="hover:text-blush">
+                <Link href={item.href} className="hover:text-teal">
                   {item.label}
                 </Link>
               </li>
@@ -43,12 +37,12 @@ export function Footer() {
         </div>
 
         <div className="lg:col-span-4">
-          <p className="text-[11px] tracking-[0.28em] uppercase text-cream/50">
+          <p className="text-[11px] font-semibold tracking-[0.24em] uppercase text-teal">
             Get in touch
           </p>
           <ul className="mt-4 space-y-2 text-sm">
             <li>
-              <a href={site.emailHref} className="hover:text-blush">
+              <a href={site.emailHref} className="hover:text-teal">
                 {site.email}
               </a>
             </li>
@@ -57,7 +51,7 @@ export function Footer() {
                 href={site.instagram}
                 target="_blank"
                 rel="noreferrer"
-                className="hover:text-blush"
+                className="hover:text-teal"
               >
                 Instagram
               </a>
@@ -67,7 +61,7 @@ export function Footer() {
                 href={site.facebook}
                 target="_blank"
                 rel="noreferrer"
-                className="hover:text-blush"
+                className="hover:text-teal"
               >
                 Facebook
               </a>
@@ -81,7 +75,9 @@ export function Footer() {
 
       <div className="border-t border-white/10">
         <div className="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-6 text-[11px] tracking-[0.14em] uppercase text-cream/45 sm:flex-row sm:items-center sm:justify-between sm:px-8 lg:px-12">
-          <p>© {new Date().getFullYear()} {site.name}. All rights reserved.</p>
+          <p>
+            © {new Date().getFullYear()} {site.name}. All rights reserved.
+          </p>
           <Link href="/privacy" className="hover:text-cream">
             Privacy
           </Link>

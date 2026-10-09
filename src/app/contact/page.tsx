@@ -44,7 +44,7 @@ export default async function ContactPage({
           </p>
           <ul className="mt-10 space-y-3 text-sm">
             <li>
-              <a href={site.emailHref} className="hover:text-blush">
+              <a href={site.emailHref} className="hover:text-teal">
                 {site.email}
               </a>
             </li>
@@ -53,7 +53,7 @@ export default async function ContactPage({
                 href={site.instagram}
                 target="_blank"
                 rel="noreferrer"
-                className="hover:text-blush"
+                className="hover:text-teal"
               >
                 Instagram
               </a>
@@ -63,7 +63,7 @@ export default async function ContactPage({
                 href={site.facebook}
                 target="_blank"
                 rel="noreferrer"
-                className="hover:text-blush"
+                className="hover:text-teal"
               >
                 Facebook
               </a>

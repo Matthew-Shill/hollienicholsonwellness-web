@@ -17,17 +17,19 @@ export const site = {
 } as const;
 
 export const nav = [
-  { href: "/programs/collective", label: "The Collective" },
-  { href: "/about", label: "About" },
-  { href: "/#speaking", label: "Speaking" },
-  { href: "/start", label: "Free Workout" },
+  { href: "/#offerings", label: "Offerings" },
+  { href: "/#pricing", label: "Pricing" },
+  { href: "/#about", label: "About" },
+  { href: "/#faq", label: "FAQ" },
 ] as const;
 
 export const footerNav = [
-  { href: "/programs", label: "Programs" },
+  { href: "/programs/collective", label: "STRONG Collective" },
+  { href: "/athletes", label: "Athlete Collective" },
+  { href: "/programs", label: "All programs" },
   { href: "/live", label: "Live Studio" },
   { href: "/shop", label: "Shop" },
-  { href: "/athletes", label: "Athlete Collective" },
+  { href: "/start", label: "Free Workout" },
   { href: "/contact", label: "Contact" },
 ] as const;
 

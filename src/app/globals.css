@@ -1,13 +1,13 @@
 /*
-  Brand palette — Hollie Nicholson Wellness
-  - ink (navy): #0f2d4d — primary from her brief
-  - cream (tan): #f6f2ea — secondary from her brief
-  - blush (dusty pink): #b85c68 — main-site highlight (eyebrows, accents, soft washes)
-  - moss (muted green): #5f7a66 — gap-fill green; secondary highlight (rules, steps)
-  - teal: #2fa7b3 — STRONG Collective + Athlete pages only
-  Soft washes: blush-soft / moss-soft for full section backgrounds.
+  Brand palette — Hollie Nicholson Wellness (brief / form redesign)
+  Driven by her demo request: navy + cream + teal. No pink/green washes.
+  - ink (navy): #0f2d4d — primary
+  - cream: #f6f2ea — secondary / page ground
+  - teal: #2fa7b3 — accent (CTAs, rules, Collective highlights)
+  - paper: #fbf8f3 — elevated surfaces
+  Typography: Fraunces (display) + Figtree (body) — distinct from original demo.
   Header wordmark: public/brand/logo.png (swap when final logo is chosen).
-  Collective cross logo: public/brand/strong-cross.jpg (not final; triangle is merch-only).
+  Collective mark: public/brand/strong-cross.jpg (not final).
 */
 
 @import "tailwindcss";
@@ -16,13 +16,10 @@
   --ink: #0f2d4d;
   --cream: #f6f2ea;
   --paper: #fbf8f3;
-  --stone: #e4ddd3;
-  --muted: #6b645c;
-  --blush: #b85c68;
-  --blush-soft: #f0e4e2;
+  --stone: #e2ddd4;
+  --muted: #5c6b75;
   --teal: #2fa7b3;
-  --moss: #5f7a66;
-  --moss-soft: #e6ebe4;
+  --teal-deep: #248a94;
 }
 
 @theme inline {
@@ -31,13 +28,10 @@
   --color-paper: var(--paper);
   --color-stone: var(--stone);
   --color-muted: var(--muted);
-  --color-blush: var(--blush);
-  --color-blush-soft: var(--blush-soft);
   --color-teal: var(--teal);
-  --color-moss: var(--moss);
-  --color-moss-soft: var(--moss-soft);
-  --font-sans: var(--font-outfit);
-  --font-serif: var(--font-cormorant);
+  --color-teal-deep: var(--teal-deep);
+  --font-sans: var(--font-figtree);
+  --font-serif: var(--font-fraunces);
 }
 
 html {
@@ -47,27 +41,56 @@ html {
 body {
   background: var(--cream);
   color: var(--ink);
-  font-family: var(--font-outfit), system-ui, sans-serif;
+  font-family: var(--font-figtree), system-ui, sans-serif;
 }
 
 ::selection {
-  background: var(--blush);
-  color: var(--cream);
+  background: var(--teal);
+  color: white;
 }
 
-.framed {
-  position: relative;
-  border: 1px solid currentColor;
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.framed-caption {
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  translate: -50% 50%;
-  padding-inline: 0.85rem;
-  font-size: 0.62rem;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  white-space: nowrap;
+@keyframes rule-in {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.animate-rise {
+  animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-rise-delay {
+  animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+}
+
+.animate-rise-delay-2 {
+  animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
+}
+
+.rule-grow {
+  transform-origin: left;
+  animation: rule-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-rise,
+  .animate-rise-delay,
+  .animate-rise-delay-2,
+  .rule-grow {
+    animation: none;
+  }
 }
