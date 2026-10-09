@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+import { AppPhones } from "@/components/AppPhones";
 import { Faq } from "@/components/Faq";
 import { LeadForm } from "@/components/Forms";
-import { Button, Eyebrow, IconMark, Section } from "@/components/ui";
+import { Button, Eyebrow, IconCircle, Section } from "@/components/ui";
 import { faqs, methodPillars, site, testimonials } from "@/lib/site";
 
 const planPoints = [
@@ -24,81 +25,106 @@ const planPoints = [
   },
 ] as const;
 
+/** Icons matched to Hollie's Method mockup: angled dumbbell, fork+knife, three people */
 function DumbbellIcon() {
   return (
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden>
-      <path
-        d="M6 8v8M18 8v8M8 10h8M8 14h8M4 10v4M20 10v4"
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden>
+      <g
         stroke="currentColor"
-        strokeWidth="1.6"
+        strokeWidth="1.75"
         strokeLinecap="round"
-      />
+        strokeLinejoin="round"
+        transform="rotate(-38 16 16)"
+      >
+        <rect x="3.5" y="11" width="4" height="10" rx="1" />
+        <rect x="24.5" y="11" width="4" height="10" rx="1" />
+        <rect x="7" y="12.5" width="3" height="7" rx="0.75" />
+        <rect x="22" y="12.5" width="3" height="7" rx="0.75" />
+        <path d="M10 16h12" />
+      </g>
     </svg>
   );
 }
 
 function ForkIcon() {
   return (
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden>
-      <path
-        d="M8 3v7a2 2 0 002 2h0a2 2 0 002-2V3M10 12v9M16 3v6h2a2 2 0 012 2v1a3 3 0 01-3 3h-1v7"
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden>
+      <g
         stroke="currentColor"
-        strokeWidth="1.6"
+        strokeWidth="1.75"
         strokeLinecap="round"
         strokeLinejoin="round"
-      />
+      >
+        <path d="M11 6v7a2 2 0 002 2h0a2 2 0 002-2V6" />
+        <path d="M13 15v11" />
+        <path d="M10 6v3M13 6v3M16 6v3" />
+        <path d="M20 6v8h1.5a2 2 0 012 2v1.5A3.5 3.5 0 0120 21v2" />
+      </g>
     </svg>
   );
 }
 
 function PeopleIcon() {
   return (
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden>
-      <path
-        d="M9 11a3 3 0 100-6 3 3 0 000 6zM17 12a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM3.5 20a5.5 5.5 0 0111 0M14 20a4.5 4.5 0 016.5-4"
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden>
+      <g
         stroke="currentColor"
-        strokeWidth="1.6"
+        strokeWidth="1.75"
         strokeLinecap="round"
-      />
+        strokeLinejoin="round"
+      >
+        <circle cx="16" cy="11" r="3.25" />
+        <path d="M9.5 24.5a6.5 6.5 0 0113 0" />
+        <circle cx="8.5" cy="12.5" r="2.4" />
+        <path d="M3.5 24a5 5 0 015.8-4.9" />
+        <circle cx="23.5" cy="12.5" r="2.4" />
+        <path d="M22.7 19.1A5 5 0 0128.5 24" />
+      </g>
     </svg>
   );
 }
 
-const pillarIcons = [<DumbbellIcon key="d" />, <ForkIcon key="f" />, <PeopleIcon key="p" />];
+const pillarIcons = [
+  <DumbbellIcon key="d" />,
+  <ForkIcon key="f" />,
+  <PeopleIcon key="p" />,
+];
 
 export default function HomePage() {
   return (
     <>
-      {/* Hero — full-bleed, mockup-inspired */}
-      <section className="relative min-h-[88vh] overflow-hidden bg-ink text-cream">
-        {/* Photo slot: hero — Hollie with dumbbells / home gym */}
-        <Image
-          src="/images/hollie-vip.jpg"
-          alt="Hollie Nicholson training with dumbbells"
-          fill
-          priority
-          className="object-cover object-[60%_center] opacity-75"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-cream via-cream/90 to-cream/20" />
-        <div className="relative mx-auto flex min-h-[88vh] max-w-6xl flex-col justify-end px-5 pb-20 pt-24 sm:px-8 lg:justify-center lg:px-12">
-          <div className="max-w-xl text-ink">
-            <h1 className="animate-rise font-serif text-5xl leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl">
-              {site.tagline}
-            </h1>
-            <p className="animate-rise-delay mt-6 max-w-md text-base leading-relaxed text-ink/70">
-              Progressive strength training and practical nutrition for women
-              who want to build muscle, feel confident, and live stronger —
-              without giving up real life.
-            </p>
-            <div className="animate-rise-delay-2 mt-9 flex flex-wrap gap-3">
-              <Button href="/programs/collective">Explore STRONG →</Button>
-              <Button href="/start" variant="ghost">
-                Try a Free Workout
-              </Button>
+      {/* Hero — split so Hollie stays visible (photo slot: replace with dedicated hero) */}
+      <section className="bg-cream">
+        <div className="mx-auto grid min-h-[88vh] max-w-6xl lg:grid-cols-2">
+          <div className="flex flex-col justify-center px-5 py-16 sm:px-8 lg:px-12 lg:py-24">
+            <div className="max-w-xl">
+              <h1 className="animate-rise font-serif text-5xl leading-[1.02] tracking-tight text-ink sm:text-6xl lg:text-7xl">
+                {site.tagline}
+              </h1>
+              <p className="animate-rise-delay mt-6 max-w-md text-base leading-relaxed text-ink/70">
+                Progressive strength training and practical nutrition for women
+                who want to build muscle, feel confident, and live stronger —
+                without giving up real life.
+              </p>
+              <div className="animate-rise-delay-2 mt-9 flex flex-wrap gap-3">
+                <Button href="/programs/collective">Explore STRONG →</Button>
+                <Button href="/start" variant="ghost">
+                  Try a Free Workout
+                </Button>
+              </div>
             </div>
           </div>
+          <div className="relative min-h-[420px] lg:min-h-full">
+            <Image
+              src="/images/hollie-vip.jpg"
+              alt="Hollie Nicholson training with dumbbells"
+              fill
+              priority
+              className="object-cover object-[center_18%]"
+            />
+          </div>
         </div>
-        <div className="absolute inset-x-0 bottom-0 border-t border-ink/10 bg-cream/80 backdrop-blur-sm">
+        <div className="border-t border-ink/10">
           <p className="mx-auto max-w-6xl px-5 py-3 text-center text-[10px] font-semibold tracking-[0.28em] uppercase text-ink/55 sm:px-8 lg:px-12 sm:text-left">
             Progressive strength{" "}
             <span className="mx-2 text-ink/25">/</span> Practical nutrition{" "}
@@ -113,28 +139,28 @@ export default function HomePage() {
           You&apos;re putting in the work. Let&apos;s make it count.
         </h2>
         <p className="mx-auto mt-5 max-w-xl text-muted leading-relaxed">
-          You do not need another extreme reset. You need progressive lifting, a
-          simple way to eat, and enough support to actually stay with it.
+          Training, nutrition and support for a stronger you — progressive
+          lifting, a simple way to eat, and enough coaching to actually stay
+          with it.
         </p>
       </Section>
 
-      {/* The STRONG Approach — blush wash like the mockup */}
+      {/* Method icons — cream circles on blush, vertical rules (Hollie mockup) */}
       <section id="method" className="scroll-mt-24 bg-blush">
-        <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 lg:px-12 lg:py-24">
-          <div className="text-center">
-            <Eyebrow>The STRONG Approach</Eyebrow>
-            <h2 className="mt-4 font-serif text-4xl sm:text-5xl">
-              Lift. Nourish. Belong.
-            </h2>
-          </div>
-          <div className="mt-14 grid gap-10 md:grid-cols-3 md:gap-8">
+        <div className="mx-auto max-w-5xl px-5 py-16 sm:px-8 lg:px-12 lg:py-20">
+          <div className="grid gap-10 sm:grid-cols-3 sm:gap-0">
             {methodPillars.map((pillar, i) => (
-              <div key={pillar.name} className="text-center md:text-left">
-                <div className="mx-auto flex justify-center md:justify-start">
-                  <IconMark>{pillarIcons[i]}</IconMark>
-                </div>
-                <h3 className="mt-5 font-serif text-2xl">{pillar.name}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-ink/70">
+              <div
+                key={pillar.name}
+                className={`text-center sm:px-8 ${
+                  i > 0 ? "sm:border-l sm:border-ink/15" : ""
+                }`}
+              >
+                <IconCircle>{pillarIcons[i]}</IconCircle>
+                <h3 className="mt-5 font-serif text-xl text-ink sm:text-2xl">
+                  {pillar.name}
+                </h3>
+                <p className="mx-auto mt-3 max-w-[16rem] text-sm leading-relaxed text-ink/65">
                   {pillar.detail}
                 </p>
               </div>
@@ -143,26 +169,27 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Clear plan / app section */}
+      {/* Trainerize-style app UI + plan points */}
       <section className="bg-paper">
         <div className="mx-auto grid max-w-6xl items-center lg:grid-cols-2">
-          <div className="relative min-h-[420px] lg:min-h-[560px]">
-            {/* Photo slot: app / training plan visual */}
-            <Image
-              src="/images/hollie-blueprint.jpg"
-              alt="Hollie demonstrating a workout from the STRONG plan"
-              fill
-              className="object-cover object-[center_15%]"
-            />
+          <div className="relative min-h-[480px] overflow-hidden bg-gradient-to-br from-blush/80 via-paper to-cream lg:min-h-[560px]">
+            <AppPhones />
           </div>
           <div className="px-5 py-16 sm:px-10 lg:px-14">
-            <Eyebrow>Inside the plan</Eyebrow>
+            <Eyebrow>In the STRONG app</Eyebrow>
             <h2 className="mt-4 font-serif text-4xl sm:text-5xl">
               A clear plan. A stronger you.
             </h2>
+            <p className="mt-4 text-sm leading-relaxed text-muted">
+              Members train inside Hollie&apos;s white-label Trainerize app —
+              this week&apos;s workouts, videos, and check-ins in one place.
+            </p>
             <ul className="mt-10 space-y-6">
               {planPoints.map((item) => (
-                <li key={item.title} className="flex gap-4 border-t border-ink/10 pt-5">
+                <li
+                  key={item.title}
+                  className="flex gap-4 border-t border-ink/10 pt-5"
+                >
                   <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-teal" />
                   <div>
                     <p className="font-semibold">{item.title}</p>

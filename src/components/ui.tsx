@@ -82,13 +82,13 @@ export function Section({
   );
 }
 
-export function IconMark({
+export function IconCircle({
   children,
 }: {
   children: ReactNode;
 }) {
   return (
-    <div className="flex h-12 w-12 items-center justify-center text-ink">
+    <div className="mx-auto flex h-[4.5rem] w-[4.5rem] items-center justify-center rounded-full bg-cream text-ink shadow-sm ring-1 ring-ink/5">
       {children}
     </div>
   );
