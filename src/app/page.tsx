@@ -70,7 +70,7 @@ export default function HomePage() {
       </section>
 
       {/* Trust strip — pink credentials bar */}
-      <section className="bg-blush-deep text-cream" aria-label="Credentials">
+      <section className="bg-ink text-cream" aria-label="Credentials">
         <div className="mx-auto grid max-w-6xl gap-8 px-5 py-10 sm:grid-cols-2 sm:gap-6 sm:px-8 lg:grid-cols-4 lg:gap-4 lg:px-12 lg:py-12">
           {[
             { value: "1,000+", label: "Women coached since 2020" },
