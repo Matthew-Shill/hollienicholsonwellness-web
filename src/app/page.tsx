@@ -41,7 +41,8 @@ export default function HomePage() {
           <div className="flex flex-col justify-center px-5 py-16 sm:px-8 lg:px-12 lg:py-24">
             <div className="max-w-xl">
               <h1 className="animate-rise font-serif text-5xl leading-[1.02] tracking-tight text-ink sm:text-6xl lg:text-7xl">
-                {site.tagline}
+                Build the body you want to{" "}
+                <span className="text-shimmer-pink">live in.</span>
               </h1>
               <p className="animate-rise-delay mt-6 max-w-md text-base leading-relaxed text-ink/70">
                 Progressive strength training and practical nutrition for women
