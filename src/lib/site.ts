@@ -4,11 +4,12 @@ export const site = {
   tagline: "Build the body you want to live in.",
   description:
     "Strength training and nutrition coaching for busy women. Follow-along workouts, a simple plan, and a trainer in your corner — without hours in the gym.",
-  phone: "217-292-4252",
-  phoneHref: "tel:2172924252",
-  email: "Hollienicholsonfitness@gmail.com",
-  emailHref: "mailto:Hollienicholsonfitness@gmail.com",
+  email: "hollie@hollienicholsonstrong.com",
+  emailHref: "mailto:hollie@hollienicholsonstrong.com",
   facebook: "https://www.facebook.com/hollienicholsonwellness",
+  instagram: "https://www.instagram.com/hollienicholsonstrong/",
+  serviceArea:
+    "Online programs available nationwide. In-person personal training by limited availability in Noblesville, Indiana.",
   live: {
     days: "Monday, Tuesday & Friday",
     time: "5:45 AM ET",
@@ -16,18 +17,24 @@ export const site = {
 } as const;
 
 export const nav = [
+  { href: "/programs/collective", label: "The Collective" },
   { href: "/about", label: "About" },
+  { href: "/#speaking", label: "Speaking" },
+  { href: "/start", label: "Free Workout" },
+] as const;
+
+export const footerNav = [
   { href: "/programs", label: "Programs" },
   { href: "/live", label: "Live Studio" },
   { href: "/shop", label: "Shop" },
-  { href: "/start", label: "Free Workouts" },
+  { href: "/athletes", label: "Athlete Collective" },
   { href: "/contact", label: "Contact" },
 ] as const;
 
 export const programs = [
   {
     slug: "lean-body",
-    eyebrow: "Starts August 31",
+    eyebrow: "Seasonal challenge",
     name: "14-Day LeanBody Project",
     price: "$19",
     duration: "14 days",
@@ -40,7 +47,7 @@ export const programs = [
   },
   {
     slug: "lift-to-lean",
-    eyebrow: "Next session September 14",
+    eyebrow: "Seasonal session",
     name: "Lift to Lean",
     price: "$99",
     duration: "6 weeks",
@@ -52,29 +59,16 @@ export const programs = [
     featured: false,
   },
   {
-    slug: "vip",
+    slug: "collective",
     eyebrow: "Ongoing membership",
-    name: "STRONG VIP",
+    name: "STRONG Collective",
     price: "From $79/mo",
     duration: "Month, quarter, or year",
-    blurb: "Daily workouts, live coaching, yoga, and a community of women who are done starting over.",
-    href: "/programs/vip",
-    cta: "Join VIP",
+    blurb: "Progressive strength programs, live and on-demand workouts, app access, nutrition guidance, and a community of women who are done starting over.",
+    href: "/programs/collective",
+    cta: "Join the Collective",
     image: "/images/hollie-rack.jpg",
     imagePosition: "center 12%",
-    featured: false,
-  },
-  {
-    slug: "transform",
-    eyebrow: "1:1 coaching",
-    name: "STRONG Transform",
-    price: "$1,699",
-    duration: "16 weeks",
-    blurb: "Custom nutrition coaching to change how you eat, fuel, and feel — without another diet.",
-    href: "/programs/transform",
-    cta: "Book a discovery call",
-    image: "/images/hollie-protein.jpg",
-    imagePosition: "center top",
     featured: false,
   },
 ] as const;
@@ -102,7 +96,7 @@ export const testimonials = [
     quote:
       "I lost 8 inches in 10 weeks. I feel so much stronger and able. I also love the daily devotionals. I recommend STRONG to everyone.",
     name: "Client",
-    role: "STRONG VIP",
+    role: "STRONG Collective",
   },
   {
     quote:
@@ -114,7 +108,7 @@ export const testimonials = [
     quote:
       "A couple of months in, I’ve lost 16 pounds in 7 weeks. Hollie is always there with practical, achievable action items. I’m wearing shorts I haven’t fit into for years.",
     name: "Heather",
-    role: "1:1 nutrition coaching",
+    role: "Nutrition coaching",
   },
 ] as const;
 
@@ -253,7 +247,7 @@ export const faqs = {
       a: "Life happens. The plan is built for busy weeks. You pick back up, follow the next workout, and keep going. Consistency over perfection.",
     },
   ],
-  vip: [
+  collective: [
     {
       q: "When are live workouts?",
       a: "Monday, Tuesday, and Friday at 5:45 AM ET on Zoom. If you cannot make it live, the recording is waiting for you in the app.",

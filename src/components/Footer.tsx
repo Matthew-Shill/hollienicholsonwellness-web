@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { nav, site } from "@/lib/site";
+import { footerNav, nav, site } from "@/lib/site";
 
 export function Footer() {
   return (
@@ -32,11 +32,13 @@ export function Footer() {
                 </Link>
               </li>
             ))}
-            <li>
-              <Link href="/programs" className="hover:text-blush">
-                All programs
-              </Link>
-            </li>
+            {footerNav.map((item) => (
+              <li key={item.href}>
+                <Link href={item.href} className="hover:text-blush">
+                  {item.label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
 
@@ -46,13 +48,18 @@ export function Footer() {
           </p>
           <ul className="mt-4 space-y-2 text-sm">
             <li>
-              <a href={site.phoneHref} className="hover:text-blush">
-                {site.phone}
+              <a href={site.emailHref} className="hover:text-blush">
+                {site.email}
               </a>
             </li>
             <li>
-              <a href={site.emailHref} className="hover:text-blush">
-                {site.email}
+              <a
+                href={site.instagram}
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-blush"
+              >
+                Instagram
               </a>
             </li>
             <li>
@@ -66,6 +73,9 @@ export function Footer() {
               </a>
             </li>
           </ul>
+          <p className="mt-6 max-w-sm text-sm leading-relaxed text-cream/55">
+            {site.serviceArea}
+          </p>
         </div>
       </div>
 

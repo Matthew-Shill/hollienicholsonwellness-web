@@ -42,7 +42,7 @@ export default function LeanBodyPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/80 to-transparent" />
         <div className="relative mx-auto flex min-h-[80vh] max-w-6xl items-center px-5 py-20 sm:px-8 lg:px-12">
           <div className="max-w-xl">
-            <Eyebrow>Starts August 31</Eyebrow>
+            <Eyebrow>Seasonal challenge</Eyebrow>
             <h1 className="mt-4 font-serif text-5xl sm:text-6xl lg:text-7xl">
               14-Day LeanBody Project
             </h1>
@@ -124,14 +124,14 @@ export default function LeanBodyPage() {
             <h2 className="mt-4 font-serif text-4xl">Join LeanBody for $19.</h2>
             <p className="mt-4 text-sm leading-relaxed text-muted">
               Drop your name and email. Hollie will send checkout and app access
-              so you are ready for August 31. Dumbbells only.
+              so you can start right away. Dumbbells only.
             </p>
           </div>
           <LeadForm
             kind="lean-body"
             interest="14-Day LeanBody Project"
             cta="Join the project — $19"
-            success="Hollie will send checkout and app access so you are ready for August 31."
+            success="Hollie will send checkout and app access so you can start right away."
           />
         </div>
         <div className="mt-16">

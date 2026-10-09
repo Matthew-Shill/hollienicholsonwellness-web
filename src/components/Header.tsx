@@ -26,7 +26,10 @@ export function Header() {
 
         <nav className="hidden items-center gap-6 lg:flex">
           {nav.map((item) => {
-            const active = pathname === item.href || pathname.startsWith(`${item.href}/`);
+            const active =
+              item.href.startsWith("/#")
+                ? false
+                : pathname === item.href || pathname.startsWith(`${item.href}/`);
             return (
               <Link
                 key={item.href}
@@ -40,10 +43,10 @@ export function Header() {
             );
           })}
           <Link
-            href="/programs/lean-body"
-            className="border border-cream px-4 py-2 text-[11px] tracking-[0.22em] uppercase hover:bg-cream hover:text-ink"
+            href="/programs/collective"
+            className="border border-blush bg-blush px-4 py-2 text-[11px] tracking-[0.22em] uppercase text-cream hover:bg-cream hover:text-ink hover:border-cream"
           >
-            Join LeanBody
+            Join
           </Link>
         </nav>
 
@@ -72,11 +75,11 @@ export function Header() {
               </Link>
             ))}
             <Link
-              href="/programs/lean-body"
+              href="/programs/collective"
               onClick={() => setOpen(false)}
-              className="mt-2 border border-cream px-4 py-3 text-center text-[11px] tracking-[0.22em] uppercase"
+              className="mt-2 border border-blush bg-blush px-4 py-3 text-center text-[11px] tracking-[0.22em] uppercase text-cream"
             >
-              Join LeanBody · $19
+              Join the Collective
             </Link>
           </nav>
         </div>

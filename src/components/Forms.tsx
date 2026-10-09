@@ -70,8 +70,8 @@ export function ContactForm({ defaultInterest }: { defaultInterest?: string }) {
   if (status === "ok") {
     return (
       <Success>
-        Hollie will be in touch within 48 hours. If you need her sooner, call or
-        email anytime.
+        Hollie will be in touch within 48 hours. If you need her sooner, email
+        anytime.
       </Success>
     );
   }
@@ -111,10 +111,11 @@ export function ContactForm({ defaultInterest }: { defaultInterest?: string }) {
         {[
           "14-Day LeanBody Project",
           "Lift to Lean",
-          "STRONG VIP",
-          "1:1 Transform coaching",
+          "STRONG Collective",
+          "Speaking / keynote",
           "Live STRONG class",
           "Free Full-Body Blueprint",
+          "STRONG Athlete Collective",
           "STRONG apparel",
           "Something else",
         ].map((opt) => (
@@ -158,7 +159,7 @@ export function LeadForm({
     return (
       <Success>
         {success ??
-          "Hollie will follow up shortly with next steps. If you need her sooner, email or call anytime."}
+          "Hollie will follow up shortly with next steps. If you need her sooner, email anytime."}
       </Success>
     );
   }

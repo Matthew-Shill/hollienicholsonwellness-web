@@ -23,7 +23,7 @@ export default function LiftToLeanPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/70 to-transparent" />
         <div className="relative mx-auto flex min-h-[78vh] max-w-6xl items-center px-5 py-20 sm:px-8 lg:px-12">
           <div className="max-w-xl">
-            <Eyebrow>Next session · September 14</Eyebrow>
+            <Eyebrow>Seasonal session · Winter STRONG</Eyebrow>
             <h1 className="mt-4 font-serif text-5xl sm:text-7xl">Lift to Lean</h1>
             <p className="mt-5 text-sm leading-relaxed text-cream/75">
               Six weeks to build strength, lose fat, and finally see your body
@@ -113,15 +113,16 @@ export default function LiftToLeanPage() {
             <Eyebrow>Limited-time pricing</Eyebrow>
             <h2 className="mt-4 font-serif text-4xl">Start Lift to Lean · $99</h2>
             <p className="mt-4 text-sm leading-relaxed text-muted">
-              Session begins Monday, September 14. Join now and get immediate
-              access to start-now workouts while you wait.
+              Seasonal sessions run throughout the year — Winter STRONG, Spring
+              STRONG, and so on. Join now and Hollie will get you started with
+              the current cycle.
             </p>
           </div>
           <LeadForm
             kind="lift-to-lean"
             interest="Lift to Lean"
             cta="Reserve my spot — $99"
-            success="Hollie will send checkout. Join now and you will get start-now workouts while you wait for September 14."
+            success="Hollie will send checkout and get you into the current seasonal session."
           />
         </div>
         <div className="mt-16">

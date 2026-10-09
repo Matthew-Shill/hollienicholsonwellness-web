@@ -1,197 +1,224 @@
 import Image from "next/image";
-import Link from "next/link";
-import { Button, Eyebrow, FramedMark, Section } from "@/components/ui";
-import { programs, site, testimonials } from "@/lib/site";
+import { Button, Eyebrow, Section } from "@/components/ui";
+import { testimonials } from "@/lib/site";
 
 export default function HomePage() {
   return (
     <>
-      <Link
-        href="/programs/lean-body"
-        className="flex items-center justify-center gap-3 bg-blush px-5 py-2.5 text-center text-[11px] tracking-[0.22em] uppercase text-cream"
-      >
-        <span>14-Day LeanBody Project · Starts August 31 · $19</span>
-        <span className="hidden sm:inline">Join now →</span>
-      </Link>
-
-      <section className="relative min-h-[88vh] overflow-hidden bg-ink text-cream">
-        <Image
-          src="/images/hero-squat.jpg"
-          alt="Hollie coaching a goblet squat in her home studio"
-          fill
-          priority
-          className="object-cover object-[70%_center] opacity-80"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/75 to-ink/10" />
-        <div className="relative mx-auto flex min-h-[88vh] max-w-6xl flex-col justify-end px-5 py-16 sm:px-8 lg:justify-center lg:px-12">
-          <div className="max-w-xl">
-            <Eyebrow>Online strength for busy women</Eyebrow>
+      {/* Hero — face-forward photo slot: swap hollie-portrait when she sends a dedicated hero */}
+      <section className="relative overflow-hidden bg-ink text-cream">
+        <div className="mx-auto grid min-h-[88vh] max-w-6xl lg:grid-cols-2">
+          <div className="relative z-10 flex flex-col justify-center px-5 py-16 sm:px-8 lg:px-12">
+            <Eyebrow tone="blush">
+              Strength coaching for working professional women over 35
+            </Eyebrow>
             <h1 className="mt-5 font-serif text-5xl leading-[0.95] sm:text-6xl lg:text-7xl">
-              Lift weights.
+              Build the body
               <br />
-              Burn fat.
+              you want to live
               <br />
-              Get STRONG.
+              in.
             </h1>
             <p className="mt-6 max-w-md text-sm leading-relaxed text-cream/75 sm:text-base">
-              {site.tagline} Follow-along workouts, simple nutrition, and a
-              trainer who gets what your life actually looks like.
+              You have a career and a life. You cannot afford to waste time or
+              energy on things that don&apos;t work. I&apos;ll show you what does.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Button href="/programs/lean-body" variant="light">
-                Start the 14-day project
+              <Button href="/programs/collective" variant="light">
+                Join the STRONG Collective
               </Button>
-              <Button href="/start" variant="ghost">
-                Get free workouts
+              <Button href="/#speaking" variant="ghost">
+                Book Hollie to speak
+              </Button>
+            </div>
+          </div>
+          <div className="relative min-h-[420px] lg:min-h-full">
+            <Image
+              src="/images/hollie-portrait.jpg"
+              alt="Hollie Nicholson"
+              fill
+              priority
+              className="object-cover object-top"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section className="border-y border-moss/25 bg-moss-soft">
+        <div className="mx-auto grid max-w-6xl gap-8 px-5 py-10 sm:grid-cols-2 sm:px-8 lg:grid-cols-4 lg:px-12 lg:gap-6">
+          {[
+            { value: "1,000+", label: "Women coached since 2020" },
+            { value: "20 years", label: "Of training experience" },
+            { value: "Trainer +", label: "Nutrition coach · Former teacher" },
+            { value: "Keynote speaker", label: "Workplaces, schools, women’s events" },
+          ].map((stat) => (
+            <div key={stat.value}>
+              <p className="font-serif text-2xl text-blush sm:text-3xl">{stat.value}</p>
+              <p className="mt-2 text-[11px] tracking-[0.18em] uppercase text-moss">
+                {stat.label}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <Section className="py-20 lg:py-28">
+        <Eyebrow>Why STRONG</Eyebrow>
+        <h2 className="mt-4 max-w-2xl font-serif text-4xl sm:text-5xl">
+          Muscle is not just about the mirror.
+        </h2>
+        <p className="mt-6 max-w-2xl text-muted leading-relaxed">
+          You want to get toned. Feel better. Fit in your clothes. Good. Lifting
+          does all of that. It is also your long-term health plan. The strength
+          you build now is what carries you through every decade after this one.
+        </p>
+      </Section>
+
+      <section className="bg-blush-soft">
+        <div className="mx-auto grid max-w-6xl lg:grid-cols-2">
+          <div className="border-b border-blush/20 px-5 py-16 sm:px-10 lg:border-b-0 lg:border-r lg:px-12 lg:py-20">
+            <Eyebrow>For you</Eyebrow>
+            <h2 className="mt-4 font-serif text-3xl sm:text-4xl">
+              Train with me in the STRONG Collective
+            </h2>
+            <p className="mt-5 max-w-md text-sm leading-relaxed text-muted">
+              My membership for women who are done guessing. The workouts are
+              written. You show up and lift.
+            </p>
+            <div className="mt-8">
+              <Button href="/programs/collective" variant="ghost">
+                See the Collective →
+              </Button>
+            </div>
+          </div>
+          <div className="px-5 py-16 sm:px-10 lg:px-12 lg:py-20">
+            <Eyebrow>For your team or event</Eyebrow>
+            <h2 className="mt-4 font-serif text-3xl sm:text-4xl">
+              Bring me in to speak
+            </h2>
+            <p className="mt-5 max-w-md text-sm leading-relaxed text-muted">
+              Keynotes and workshops for businesses, schools, and organizations.
+              Strong people do better work.
+            </p>
+            <div className="mt-8">
+              <Button href="/#speaking" variant="ghost">
+                See speaking →
               </Button>
             </div>
           </div>
         </div>
       </section>
-
-      <Section className="py-20 lg:py-28">
-        <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
-          <div className="lg:col-span-5">
-            <Eyebrow>The STRONG Method</Eyebrow>
-            <h2 className="mt-4 font-serif text-4xl sm:text-5xl">
-              A plan you can live in.
-            </h2>
-          </div>
-          <p className="lg:col-span-6 lg:col-start-7 text-muted leading-relaxed">
-            You do not need another extreme reset. You need lifting, a simple
-            way to eat, and enough support to actually do it. Open the app. Do
-            the workout. Move on with your day.
-          </p>
-        </div>
-
-        <div className="mt-14 grid gap-px bg-ink/10 sm:grid-cols-3">
-          {[
-            {
-              title: "Fitness",
-              copy: "Strength-based workouts in 40 minutes or less. Dumbbells. At home. Coached from start to finish.",
-            },
-            {
-              title: "Nutrition",
-              copy: "Real food. Simple habits. No tracking obsession. Eat in a way that supports fat loss and family life.",
-            },
-            {
-              title: "Coaching",
-              copy: "A real trainer in your corner — live classes, app coaching, or 1:1 when you want a custom plan.",
-            },
-          ].map((item) => (
-            <div key={item.title} className="bg-cream px-6 py-10 sm:px-8">
-              <p className="text-[11px] tracking-[0.28em] uppercase">{item.title}</p>
-              <p className="mt-4 text-sm leading-relaxed text-muted">{item.copy}</p>
-            </div>
-          ))}
-        </div>
-      </Section>
 
       <section className="bg-ink text-cream">
         <div className="mx-auto grid max-w-6xl lg:grid-cols-2">
+          {/* Photo slot: Collective coaching — replace with lifting/coaching shot */}
           <div className="relative min-h-[420px]">
             <Image
-              src="/images/hollie-goblet.jpg"
-              alt="Hollie holding a dumbbell in her studio"
+              src="/images/hollie-rack.jpg"
+              alt="Hollie coaching strength training"
               fill
-              className="object-cover"
+              className="object-cover object-[center_12%]"
             />
           </div>
           <div className="flex flex-col justify-center px-5 py-16 sm:px-10 lg:px-14">
-            <Eyebrow>Current project</Eyebrow>
+            <p className="text-[11px] tracking-[0.32em] uppercase text-teal">
+              The STRONG Collective
+            </p>
             <h2 className="mt-4 font-serif text-4xl sm:text-5xl">
-              14 days. One plan. $19.
+              Stop piecing it together yourself.
             </h2>
             <p className="mt-5 max-w-md text-sm leading-relaxed text-cream/70">
-              The kids are back in school. Now it is your turn. Four follow-along
-              workouts a week, a LeanBody Eats guide, and Hollie coaching you
-              through every session.
+              You don&apos;t need another plan to figure out. You need one that
+              is already built, by someone who has done this for 20 years.
             </p>
-            <ul className="mt-8 space-y-2 text-sm text-cream/80">
-              <li>Upper · Lower · Full body · Cardio + core</li>
-              <li>30 minutes or less, dumbbells only</li>
-              <li>Starts August 31</li>
+            <ul className="mt-8 space-y-3 text-sm text-cream/85">
+              <li>Five workouts a week, ready in the app.</li>
+              <li>A new training cycle every few weeks, so you keep progressing.</li>
+              <li>Simple nutrition habits. Stop overcomplicating dinner.</li>
+              <li>Mini-courses by topic, for when you want to go deeper.</li>
             </ul>
             <div className="mt-8">
-              <Button href="/programs/lean-body" variant="light">
-                I am in
+              <Button
+                href="/programs/collective"
+                variant="light"
+                className="hover:border-teal hover:bg-teal hover:text-cream"
+              >
+                Join the Collective
               </Button>
             </div>
           </div>
         </div>
       </section>
 
-      <Section className="py-20 lg:py-28">
-        <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <Eyebrow>Ways to train</Eyebrow>
-            <h2 className="mt-4 font-serif text-4xl sm:text-5xl">Choose your next step.</h2>
+      <section className="bg-moss-soft">
+        <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
+          <Eyebrow tone="moss">How it works</Eyebrow>
+          <h2 className="mt-4 font-serif text-4xl sm:text-5xl">
+            Three steps. That&apos;s it.
+          </h2>
+          <div className="mt-14 grid gap-10 sm:grid-cols-3">
+            {[
+              {
+                step: "01",
+                title: "Join",
+                copy: "Sign up and you're in. No application. No waiting on me.",
+              },
+              {
+                step: "02",
+                title: "Open the app",
+                copy: "This week's workouts are waiting. Pick your days and lift.",
+              },
+              {
+                step: "03",
+                title: "Check in",
+                copy: "Tell us how it's going. Something is better than nothing, and we'll keep you moving.",
+              },
+            ].map((item) => (
+              <div key={item.step} className="border-t-2 border-moss pt-6">
+                <p className="text-[11px] tracking-[0.28em] uppercase text-blush">
+                  {item.step}
+                </p>
+                <h3 className="mt-3 font-serif text-2xl">{item.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted">{item.copy}</p>
+              </div>
+            ))}
           </div>
-          <Button href="/programs" variant="ghost">
-            View all programs
-          </Button>
         </div>
-
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
-          {programs.map((program) => (
-            <Link
-              key={program.slug}
-              href={program.href}
-              className="group overflow-hidden border border-ink/10 bg-paper"
-            >
-              <div className="relative aspect-square">
-                <Image
-                  src={program.image}
-                  alt=""
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                  style={{ objectPosition: program.imagePosition }}
-                />
-              </div>
-              <div className="p-6 sm:p-8">
-                <p className="text-[11px] tracking-[0.22em] uppercase text-muted">
-                  {program.eyebrow} · {program.price}
-                </p>
-                <h3 className="mt-3 font-serif text-3xl">{program.name}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted">
-                  {program.blurb}
-                </p>
-                <p className="mt-5 text-[11px] tracking-[0.22em] uppercase">
-                  {program.cta} →
-                </p>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </Section>
+      </section>
 
       <section className="bg-paper">
         <div className="mx-auto grid max-w-6xl items-center gap-0 lg:grid-cols-2">
           <div className="px-5 py-16 sm:px-10 lg:px-12">
-            <FramedMark
-              title="Hollie Nicholson"
-              caption="Trainer · Nutrition coach · Mom of three"
-              className="mb-10 max-w-md bg-paper"
-            />
-            <h2 className="font-serif text-4xl sm:text-5xl">
-              17 years of coaching. Zero interest in fluff.
+            <Eyebrow>About</Eyebrow>
+            <h2 className="mt-4 font-serif text-4xl sm:text-5xl">
+              Hey there, I&apos;m Hollie.
             </h2>
             <p className="mt-5 max-w-md text-sm leading-relaxed text-muted">
-              Hollie is a certified trainer and nutrition coach — and a Midwest
-              mom of three who feels most alive in the mountains and always has
-              an afternoon Diet Coke in hand. She built STRONG for women who are
-              done spinning their wheels.
+              I&apos;m a certified personal trainer, nutrition coach, and
+              wellness expert with over 16 years of experience. I help women
+              transform their bodies and build real strength through effective,
+              time-efficient strength training.
+            </p>
+            <p className="mt-4 max-w-md text-sm leading-relaxed text-muted">
+              As a mom of three, I understand what it&apos;s like to juggle
+              family, a career, and your own goals. I created the STRONG Method
+              to take the guesswork out of fitness — designed specifically for
+              busy women who want results without giving up their lives.
+            </p>
+            <p className="mt-6 font-serif text-xl italic text-blush">
+              Love Jesus. Lift Heavy. Be STRONG.
             </p>
             <div className="mt-8">
               <Button href="/about" variant="ghost">
-                Meet Hollie
+                More about Hollie →
               </Button>
             </div>
           </div>
+          {/* Photo slot: About portrait */}
           <div className="relative min-h-[520px]">
             <Image
-              src="/images/hollie-portrait.jpg"
-              alt="Hollie Nicholson in her kitchen"
+              src="/images/hollie-kitchen.jpg"
+              alt="Hollie Nicholson"
               fill
               className="object-cover object-top"
             />
@@ -199,42 +226,97 @@ export default function HomePage() {
         </div>
       </section>
 
-      <Section className="py-20 lg:py-28">
-        <Eyebrow>Results from real women</Eyebrow>
-        <h2 className="mt-4 max-w-xl font-serif text-4xl sm:text-5xl">
-          Busy lives. Stronger bodies.
-        </h2>
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {testimonials.slice(0, 3).map((t) => (
-            <blockquote key={t.name} className="border border-ink/10 bg-paper p-7">
-              <p className="font-serif text-xl leading-snug">“{t.quote}”</p>
-              <footer className="mt-6 text-[11px] tracking-[0.18em] uppercase text-muted">
-                {t.name} · {t.role}
-              </footer>
-            </blockquote>
-          ))}
-        </div>
-      </Section>
-
-      <section className="relative overflow-hidden bg-ink text-cream">
-        <Image
-          src="/images/hollie-rack.jpg"
-          alt="Hollie training with a resistance band"
-          fill
-          className="object-cover object-[center_28%] opacity-35"
-        />
-        <div className="relative mx-auto max-w-6xl px-5 py-24 sm:px-8 lg:px-12">
-          <Eyebrow>STRONG Studio</Eyebrow>
-          <h2 className="mt-4 max-w-lg font-serif text-4xl sm:text-6xl">
-            Live with Hollie, {site.live.days}.
+      <section className="bg-blush-soft">
+        <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
+          <Eyebrow>From the women inside</Eyebrow>
+          <h2 className="mt-4 max-w-xl font-serif text-4xl sm:text-5xl">
+            You are stronger than you think.
           </h2>
-          <p className="mt-5 max-w-md text-sm leading-relaxed text-cream/75">
-            {site.live.time} on Zoom. Miss it? The recording is yours. Your first
-            class is free.
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {testimonials.slice(0, 3).map((t) => (
+              <blockquote key={t.name} className="border border-blush/25 bg-cream p-7">
+                <p className="font-serif text-xl leading-snug">“{t.quote}”</p>
+                <footer className="mt-6 text-[11px] tracking-[0.18em] uppercase text-moss">
+                  {t.name} · {t.role}
+                </footer>
+              </blockquote>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="speaking" className="scroll-mt-24 bg-ink text-cream">
+        <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
+          <div className="max-w-2xl">
+            <Eyebrow tone="blush">Speaking</Eyebrow>
+            <h2 className="mt-4 font-serif text-4xl sm:text-5xl">
+              Strong people do better work.
+            </h2>
+            <p className="mt-5 text-sm leading-relaxed text-cream/75 sm:text-base">
+              I speak to teams, schools, and women&apos;s organizations about
+              what taking care of your body does for the rest of your life,
+              including your job.
+            </p>
+            <div className="mt-8">
+              <Button href="/contact?interest=speaking" variant="light">
+                Book Hollie to speak
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-moss-soft">
+        <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
+          <Eyebrow tone="moss">Not ready to join?</Eyebrow>
+          <h2 className="mt-4 font-serif text-4xl sm:text-5xl">
+            Start here instead.
+          </h2>
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            <div className="border border-moss/30 bg-cream p-8 sm:p-10">
+              <p className="text-[11px] tracking-[0.22em] uppercase text-blush">
+                Free
+              </p>
+              <h3 className="mt-3 font-serif text-3xl">Full Body Metabolic Burn</h3>
+              <p className="mt-4 text-sm leading-relaxed text-muted">
+                One workout. Try how I train before you commit to anything.
+              </p>
+              <div className="mt-8">
+                <Button href="/start" variant="ghost">
+                  Send me the workout →
+                </Button>
+              </div>
+            </div>
+            <div className="border border-blush/30 bg-cream p-8 sm:p-10">
+              <p className="text-[11px] tracking-[0.22em] uppercase text-blush">
+                $19 · 14 days
+              </p>
+              <h3 className="mt-3 font-serif text-3xl">The LeanBody Challenge</h3>
+              <p className="mt-4 text-sm leading-relaxed text-muted">
+                Two weeks of doing the basics with me. See what consistency feels
+                like.
+              </p>
+              <div className="mt-8">
+                <Button href="/programs/lean-body" variant="ghost">
+                  Start the challenge →
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-blush">
+        <div className="mx-auto max-w-6xl px-5 py-20 text-center text-cream sm:px-8 lg:px-12 lg:py-28">
+          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl">
+            Stop starting over. Do the thing that works.
+          </h2>
+          <p className="mx-auto mt-5 max-w-lg text-cream/85 leading-relaxed">
+            The STRONG Collective. From $79 a month.
           </p>
           <div className="mt-8">
-            <Button href="/live" variant="light">
-              Try a class
+            <Button href="/programs/collective" variant="light">
+              Join the STRONG Collective
             </Button>
           </div>
         </div>

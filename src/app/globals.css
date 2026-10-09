@@ -1,12 +1,28 @@
+/*
+  Brand palette — Hollie Nicholson Wellness
+  - ink (navy): #0f2d4d — primary from her brief
+  - cream (tan): #f6f2ea — secondary from her brief
+  - blush (dusty pink): #b85c68 — main-site highlight (eyebrows, accents, soft washes)
+  - moss (muted green): #5f7a66 — gap-fill green; secondary highlight (rules, steps)
+  - teal: #2fa7b3 — STRONG Collective + Athlete pages only
+  Soft washes: blush-soft / moss-soft for full section backgrounds.
+  Header wordmark: public/brand/logo.png (swap when final logo is chosen).
+  Collective cross logo: public/brand/strong-cross.jpg (not final; triangle is merch-only).
+*/
+
 @import "tailwindcss";
 
 :root {
-  --ink: #0c0c0c;
-  --cream: #f4f0ea;
+  --ink: #0f2d4d;
+  --cream: #f6f2ea;
   --paper: #fbf8f3;
   --stone: #e4ddd3;
   --muted: #6b645c;
   --blush: #b85c68;
+  --blush-soft: #f0e4e2;
+  --teal: #2fa7b3;
+  --moss: #5f7a66;
+  --moss-soft: #e6ebe4;
 }
 
 @theme inline {
@@ -16,6 +32,10 @@
   --color-stone: var(--stone);
   --color-muted: var(--muted);
   --color-blush: var(--blush);
+  --color-blush-soft: var(--blush-soft);
+  --color-teal: var(--teal);
+  --color-moss: var(--moss);
+  --color-moss-soft: var(--moss-soft);
   --font-sans: var(--font-outfit);
   --font-serif: var(--font-cormorant);
 }
@@ -31,7 +51,7 @@ body {
 }
 
 ::selection {
-  background: var(--ink);
+  background: var(--blush);
   color: var(--cream);
 }
 
