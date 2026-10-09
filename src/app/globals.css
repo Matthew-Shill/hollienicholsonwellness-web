@@ -85,13 +85,14 @@ body {
 }
 
 .text-shimmer-pink {
+  /* Keep the lightest stop in readable pink — never white on cream */
   background-image: linear-gradient(
     105deg,
-    #b85c68 0%,
-    #e8a0a8 28%,
-    #fff5f5 50%,
-    #e8a0a8 72%,
-    #b85c68 100%
+    #8f3d4a 0%,
+    #b85c68 30%,
+    #d48992 50%,
+    #b85c68 70%,
+    #8f3d4a 100%
   );
   background-size: 200% 100%;
   background-clip: text;
