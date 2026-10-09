@@ -55,11 +55,11 @@ export default function LivePage() {
             </ul>
             <p className="mt-8 text-sm text-muted">
               Want the full membership — live classes, daily workouts, yoga, and
-              coaching? That lives inside STRONG VIP.
+              coaching? That lives inside the STRONG Collective.
             </p>
             <div className="mt-6">
-              <Button href="/programs/vip" variant="ghost">
-                See VIP
+              <Button href="/programs/collective" variant="ghost">
+                See the Collective
               </Button>
             </div>
           </div>

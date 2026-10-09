@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Button, Eyebrow, FramedMark, Section } from "@/components/ui";
+import { Button, Eyebrow, Section } from "@/components/ui";
 import { methodPillars } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -21,7 +21,7 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/50 to-ink/20" />
         <div className="relative mx-auto flex min-h-[70vh] max-w-6xl items-end px-5 pb-16 sm:px-8 lg:px-12">
           <div className="max-w-2xl">
-            <Eyebrow>About</Eyebrow>
+            <Eyebrow light>About</Eyebrow>
             <h1 className="mt-4 font-serif text-5xl sm:text-6xl lg:text-7xl">
               Hey, I&apos;m Hollie.
             </h1>
@@ -36,11 +36,10 @@ export default function AboutPage() {
       <Section className="py-20 lg:py-28">
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <FramedMark
-              title="The short version"
-              caption="Since 2009"
-              className="bg-cream"
-            />
+            <p className="text-[11px] font-semibold tracking-[0.28em] uppercase text-teal">
+              The short version
+            </p>
+            <p className="mt-3 font-serif text-3xl">Since 2009</p>
           </div>
           <div className="lg:col-span-6 space-y-5 text-base leading-relaxed text-muted">
             <p>

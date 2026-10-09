@@ -1,55 +1,48 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { nav, site } from "@/lib/site";
 
 export function Header() {
-  const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-ink text-cream">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-5 py-3 sm:px-8 lg:px-12">
+    <header className="sticky top-0 z-50 border-b border-ink/8 bg-cream/95 text-ink backdrop-blur-md">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-5 py-3.5 sm:px-8 lg:px-12">
         <Link href="/" className="shrink-0" onClick={() => setOpen(false)}>
-          <Image
-            src="/brand/logo.png"
-            alt={`${site.name} — ${site.tagline}`}
-            width={420}
-            height={80}
-            className="h-10 w-auto sm:h-11"
-            priority
-          />
+          <div className="leading-none">
+            <p className="font-serif text-2xl tracking-tight text-ink sm:text-[1.65rem]">
+              STRONG
+            </p>
+            <p className="mt-0.5 text-[9px] font-semibold tracking-[0.2em] uppercase text-ink/50">
+              By Hollie Nicholson
+            </p>
+          </div>
+          <span className="sr-only">{site.name}</span>
         </Link>
 
-        <nav className="hidden items-center gap-6 lg:flex">
-          {nav.map((item) => {
-            const active = pathname === item.href || pathname.startsWith(`${item.href}/`);
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`text-[11px] tracking-[0.22em] uppercase transition-opacity ${
-                  active ? "opacity-100" : "opacity-70 hover:opacity-100"
-                }`}
-              >
-                {item.label}
-              </Link>
-            );
-          })}
+        <nav className="hidden items-center gap-7 lg:flex">
+          {nav.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="text-[11px] font-semibold tracking-[0.18em] uppercase text-ink/60 transition-colors hover:text-ink"
+            >
+              {item.label}
+            </Link>
+          ))}
           <Link
-            href="/programs/lean-body"
-            className="border border-cream px-4 py-2 text-[11px] tracking-[0.22em] uppercase hover:bg-cream hover:text-ink"
+            href="/programs/collective"
+            className="bg-ink px-4 py-2.5 text-[11px] font-semibold tracking-[0.18em] uppercase text-cream transition-colors hover:bg-teal"
           >
-            Join LeanBody
+            Start Here →
           </Link>
         </nav>
 
         <button
           type="button"
-          className="lg:hidden text-[11px] tracking-[0.22em] uppercase"
+          className="lg:hidden text-[11px] font-semibold tracking-[0.18em] uppercase"
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-label="Toggle menu"
@@ -59,24 +52,24 @@ export function Header() {
       </div>
 
       {open ? (
-        <div className="border-t border-white/15 px-5 py-6 lg:hidden">
+        <div className="border-t border-ink/10 px-5 py-6 lg:hidden">
           <nav className="flex flex-col gap-4">
             {nav.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="text-sm tracking-[0.2em] uppercase"
+                className="text-sm font-semibold tracking-[0.16em] uppercase"
               >
                 {item.label}
               </Link>
             ))}
             <Link
-              href="/programs/lean-body"
+              href="/programs/collective"
               onClick={() => setOpen(false)}
-              className="mt-2 border border-cream px-4 py-3 text-center text-[11px] tracking-[0.22em] uppercase"
+              className="mt-2 bg-ink px-4 py-3 text-center text-[11px] font-semibold tracking-[0.18em] uppercase text-cream"
             >
-              Join LeanBody · $19
+              Start Here →
             </Link>
           </nav>
         </div>

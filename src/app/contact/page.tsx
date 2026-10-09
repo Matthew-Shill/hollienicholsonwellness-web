@@ -10,11 +10,13 @@ export const metadata: Metadata = {
 const interestMap: Record<string, string> = {
   "lean-body": "14-Day LeanBody Project",
   "lift-to-lean": "Lift to Lean",
-  vip: "STRONG VIP",
-  transform: "1:1 Transform coaching",
+  collective: "STRONG Collective",
+  vip: "STRONG Collective",
+  speaking: "Speaking / keynote",
   live: "Live STRONG class",
   blueprint: "Free Full-Body Blueprint",
   apparel: "STRONG apparel",
+  athletes: "STRONG Athlete Collective",
 };
 
 export default async function ContactPage({
@@ -37,15 +39,23 @@ export default async function ContactPage({
             Questions about STRONG, which program is right, or how to get
             started? Hollie replies within 48 hours.
           </p>
+          <p className="mt-4 text-sm leading-relaxed text-muted">
+            {site.serviceArea}
+          </p>
           <ul className="mt-10 space-y-3 text-sm">
             <li>
-              <a href={site.phoneHref} className="hover:text-blush">
-                {site.phone}
+              <a href={site.emailHref} className="hover:text-teal">
+                {site.email}
               </a>
             </li>
             <li>
-              <a href={site.emailHref} className="hover:text-blush">
-                {site.email}
+              <a
+                href={site.instagram}
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-teal"
+              >
+                Instagram
               </a>
             </li>
             <li>
@@ -53,7 +63,7 @@ export default async function ContactPage({
                 href={site.facebook}
                 target="_blank"
                 rel="noreferrer"
-                className="hover:text-blush"
+                className="hover:text-teal"
               >
                 Facebook
               </a>

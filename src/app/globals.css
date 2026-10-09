@@ -1,12 +1,26 @@
+/*
+  Brand palette — Design 3 (inspo mockup + demo brief)
+  - ink (navy): #0f2d4d
+  - cream: #f6f2ea
+  - blush: #e8cfcf — soft dusty rose washes from Hollie's inspo mockup
+  - blush-deep: #b85c68 — stronger accent when needed
+  - teal: #2fa7b3 — Collective / STRONG accent
+  Typography: Fraunces + Figtree
+  Header wordmark: public/brand/logo.png (swap when final).
+*/
+
 @import "tailwindcss";
 
 :root {
-  --ink: #0c0c0c;
-  --cream: #f4f0ea;
+  --ink: #0f2d4d;
+  --cream: #f6f2ea;
   --paper: #fbf8f3;
-  --stone: #e4ddd3;
-  --muted: #6b645c;
-  --blush: #b85c68;
+  --stone: #e2ddd4;
+  --muted: #5c6b75;
+  --blush: #e8cfcf;
+  --blush-deep: #b85c68;
+  --teal: #2fa7b3;
+  --teal-deep: #248a94;
 }
 
 @theme inline {
@@ -16,8 +30,11 @@
   --color-stone: var(--stone);
   --color-muted: var(--muted);
   --color-blush: var(--blush);
-  --font-sans: var(--font-outfit);
-  --font-serif: var(--font-cormorant);
+  --color-blush-deep: var(--blush-deep);
+  --color-teal: var(--teal);
+  --color-teal-deep: var(--teal-deep);
+  --font-sans: var(--font-figtree);
+  --font-serif: var(--font-fraunces);
 }
 
 html {
@@ -27,7 +44,7 @@ html {
 body {
   background: var(--cream);
   color: var(--ink);
-  font-family: var(--font-outfit), system-ui, sans-serif;
+  font-family: var(--font-figtree), system-ui, sans-serif;
 }
 
 ::selection {
@@ -35,19 +52,67 @@ body {
   color: var(--cream);
 }
 
-.framed {
-  position: relative;
-  border: 1px solid currentColor;
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(1.1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.framed-caption {
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  translate: -50% 50%;
-  padding-inline: 0.85rem;
-  font-size: 0.62rem;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  white-space: nowrap;
+@keyframes shimmer-pink {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+.animate-rise {
+  animation: rise 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-rise-delay {
+  animation: rise 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
+}
+
+.animate-rise-delay-2 {
+  animation: rise 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.24s both;
+}
+
+.text-shimmer-pink {
+  /* Keep the lightest stop in readable pink — never white on cream */
+  background-image: linear-gradient(
+    105deg,
+    #8f3d4a 0%,
+    #b85c68 30%,
+    #d48992 50%,
+    #b85c68 70%,
+    #8f3d4a 100%
+  );
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer-pink 3.2s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-rise,
+  .animate-rise-delay,
+  .animate-rise-delay-2 {
+    animation: none;
+  }
+
+  .text-shimmer-pink {
+    animation: none;
+    background-image: none;
+    color: var(--blush-deep);
+    -webkit-text-fill-color: var(--blush-deep);
+  }
 }

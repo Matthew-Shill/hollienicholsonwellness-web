@@ -70,8 +70,8 @@ export function ContactForm({ defaultInterest }: { defaultInterest?: string }) {
   if (status === "ok") {
     return (
       <Success>
-        Hollie will be in touch within 48 hours. If you need her sooner, call or
-        email anytime.
+        Hollie will be in touch within 48 hours. If you need her sooner, email
+        anytime.
       </Success>
     );
   }
@@ -111,10 +111,11 @@ export function ContactForm({ defaultInterest }: { defaultInterest?: string }) {
         {[
           "14-Day LeanBody Project",
           "Lift to Lean",
-          "STRONG VIP",
-          "1:1 Transform coaching",
+          "STRONG Collective",
+          "Speaking / keynote",
           "Live STRONG class",
           "Free Full-Body Blueprint",
+          "STRONG Athlete Collective",
           "STRONG apparel",
           "Something else",
         ].map((opt) => (
@@ -127,12 +128,12 @@ export function ContactForm({ defaultInterest }: { defaultInterest?: string }) {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="border border-ink bg-ink px-6 py-3 text-[11px] tracking-[0.22em] uppercase text-cream hover:bg-blush hover:border-blush disabled:opacity-60"
+        className="border border-ink bg-ink px-6 py-3 text-[11px] tracking-[0.22em] uppercase text-cream hover:bg-teal hover:border-teal disabled:opacity-60"
       >
         {status === "sending" ? "Sending…" : "Send message"}
       </button>
       {status === "error" ? (
-        <p className="text-sm text-blush">
+        <p className="text-sm text-teal-deep">
           Something went wrong. Email Hollie directly and she will take it from
           there.
         </p>
@@ -158,7 +159,7 @@ export function LeadForm({
     return (
       <Success>
         {success ??
-          "Hollie will follow up shortly with next steps. If you need her sooner, email or call anytime."}
+          "Hollie will follow up shortly with next steps. If you need her sooner, email anytime."}
       </Success>
     );
   }
@@ -187,12 +188,12 @@ export function LeadForm({
       <button
         type="submit"
         disabled={status === "sending"}
-        className="border border-ink bg-ink px-6 py-3 text-[11px] tracking-[0.22em] uppercase text-cream hover:bg-blush hover:border-blush disabled:opacity-60"
+        className="border border-ink bg-ink px-6 py-3 text-[11px] tracking-[0.22em] uppercase text-cream hover:bg-teal hover:border-teal disabled:opacity-60"
       >
         {status === "sending" ? "Sending…" : cta}
       </button>
       {status === "error" ? (
-        <p className="text-sm text-blush">
+        <p className="text-sm text-teal-deep">
           Something went wrong. Try again or email Hollie directly.
         </p>
       ) : null}

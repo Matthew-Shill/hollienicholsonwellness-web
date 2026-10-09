@@ -4,11 +4,12 @@ export const site = {
   tagline: "Build the body you want to live in.",
   description:
     "Strength training and nutrition coaching for busy women. Follow-along workouts, a simple plan, and a trainer in your corner — without hours in the gym.",
-  phone: "217-292-4252",
-  phoneHref: "tel:2172924252",
-  email: "Hollienicholsonfitness@gmail.com",
-  emailHref: "mailto:Hollienicholsonfitness@gmail.com",
+  email: "hollie@hollienicholsonstrong.com",
+  emailHref: "mailto:hollie@hollienicholsonstrong.com",
   facebook: "https://www.facebook.com/hollienicholsonwellness",
+  instagram: "https://www.instagram.com/hollienicholsonstrong/",
+  serviceArea:
+    "Online programs available nationwide. In-person personal training by limited availability in Noblesville, Indiana.",
   live: {
     days: "Monday, Tuesday & Friday",
     time: "5:45 AM ET",
@@ -16,18 +17,26 @@ export const site = {
 } as const;
 
 export const nav = [
-  { href: "/about", label: "About" },
+  { href: "/#method", label: "The Method" },
   { href: "/programs", label: "Programs" },
+  { href: "/#results", label: "Results" },
+  { href: "/about", label: "About" },
+] as const;
+
+export const footerNav = [
+  { href: "/programs/collective", label: "STRONG Collective" },
+  { href: "/athletes", label: "Athlete Collective" },
+  { href: "/programs", label: "All programs" },
   { href: "/live", label: "Live Studio" },
   { href: "/shop", label: "Shop" },
-  { href: "/start", label: "Free Workouts" },
+  { href: "/start", label: "Free Workout" },
   { href: "/contact", label: "Contact" },
 ] as const;
 
 export const programs = [
   {
     slug: "lean-body",
-    eyebrow: "Starts August 31",
+    eyebrow: "Seasonal challenge",
     name: "14-Day LeanBody Project",
     price: "$19",
     duration: "14 days",
@@ -40,7 +49,7 @@ export const programs = [
   },
   {
     slug: "lift-to-lean",
-    eyebrow: "Next session September 14",
+    eyebrow: "Seasonal session",
     name: "Lift to Lean",
     price: "$99",
     duration: "6 weeks",
@@ -52,29 +61,16 @@ export const programs = [
     featured: false,
   },
   {
-    slug: "vip",
+    slug: "collective",
     eyebrow: "Ongoing membership",
-    name: "STRONG VIP",
+    name: "STRONG Collective",
     price: "From $79/mo",
     duration: "Month, quarter, or year",
-    blurb: "Daily workouts, live coaching, yoga, and a community of women who are done starting over.",
-    href: "/programs/vip",
-    cta: "Join VIP",
+    blurb: "Progressive strength programs, live and on-demand workouts, app access, nutrition guidance, and a community of women who are done starting over.",
+    href: "/programs/collective",
+    cta: "Join the Collective",
     image: "/images/hollie-rack.jpg",
     imagePosition: "center 12%",
-    featured: false,
-  },
-  {
-    slug: "transform",
-    eyebrow: "1:1 coaching",
-    name: "STRONG Transform",
-    price: "$1,699",
-    duration: "16 weeks",
-    blurb: "Custom nutrition coaching to change how you eat, fuel, and feel — without another diet.",
-    href: "/programs/transform",
-    cta: "Book a discovery call",
-    image: "/images/hollie-protein.jpg",
-    imagePosition: "center top",
     featured: false,
   },
 ] as const;
@@ -102,7 +98,7 @@ export const testimonials = [
     quote:
       "I lost 8 inches in 10 weeks. I feel so much stronger and able. I also love the daily devotionals. I recommend STRONG to everyone.",
     name: "Client",
-    role: "STRONG VIP",
+    role: "STRONG Collective",
   },
   {
     quote:
@@ -114,7 +110,7 @@ export const testimonials = [
     quote:
       "A couple of months in, I’ve lost 16 pounds in 7 weeks. Hollie is always there with practical, achievable action items. I’m wearing shorts I haven’t fit into for years.",
     name: "Heather",
-    role: "1:1 nutrition coaching",
+    role: "Nutrition coaching",
   },
 ] as const;
 
@@ -125,14 +121,14 @@ export const methodPillars = [
       "Progressive strength training that reshapes your body without extreme cardio or burnout.",
   },
   {
-    name: "40-20 Protocol",
+    name: "Daily FOUR",
     detail:
-      "A simple daily rhythm: 40-minute strength workouts, 40g of protein per meal, 20g of fiber, and 20 minutes of walking.",
+      "A flexible nutrition approach focused on real food, protein, and habits that survive family dinners.",
   },
   {
-    name: "Daily Four Nutrition",
+    name: "Coaching + Community",
     detail:
-      "Habit-based eating that works with family dinners, date nights, and real life — not against them.",
+      "Expert guidance and accountability from Hollie and women doing the same work — not another empty feed.",
   },
 ] as const;
 
@@ -237,34 +233,38 @@ export const shop = {
 export const faqs = {
   general: [
     {
-      q: "Is this for beginners?",
-      a: "Yes. Every workout includes coaching, form cues, and modifications. Whether you are new to lifting or have been training for years, you will know exactly what to do.",
+      q: "What is STRONG?",
+      a: "STRONG is progressive strength training and practical nutrition coaching for busy women — structured workouts, app access, and real coaching so you stop piecing random plans together.",
     },
     {
-      q: "What equipment do I need?",
-      a: "Dumbbells and resistance bands. That is it. No gym, no machines, no fancy setup. If you can spare a corner of a room, you can train.",
+      q: "Who is STRONG for?",
+      a: "Primarily women ages 35–55 who want to build muscle, improve body composition, and establish routines that fit real life. Parents can also explore Athlete Collective for youth athletes (currently in beta).",
     },
     {
-      q: "How long are the workouts?",
-      a: "Most sessions are 30–40 minutes. LeanBody workouts are 30 minutes or less. Open the app, press play, and get on with your day.",
+      q: "Do I need a gym?",
+      a: "No. Dumbbells and resistance bands at home are enough. Most sessions are 30–40 minutes.",
+    },
+    {
+      q: "How is this different from YouTube or Peloton?",
+      a: "Those are libraries of unrelated workouts. STRONG is a progressive plan that builds week to week, with Hollie coaching and a community doing the same work.",
     },
     {
       q: "What if I miss a day?",
-      a: "Life happens. The plan is built for busy weeks. You pick back up, follow the next workout, and keep going. Consistency over perfection.",
+      a: "Life happens. Pick back up with the next workout. Consistency over perfection.",
     },
   ],
-  vip: [
+  collective: [
     {
       q: "When are live workouts?",
-      a: "Monday, Tuesday, and Friday at 5:45 AM ET on Zoom. If you cannot make it live, the recording is waiting for you in the app.",
-    },
-    {
-      q: "How is this different from Peloton or YouTube?",
-      a: "Those are libraries of random workouts. STRONG is a progressive plan that builds week to week, with a real coach (Hollie) and a community of women doing the same work.",
+      a: "Monday, Tuesday, and Friday at 5:45 AM ET on Zoom. If you cannot make it live, the recording is waiting in the app.",
     },
     {
       q: "Can I cancel?",
-      a: "Monthly memberships can be cancelled anytime. You will keep access through the billing period you already paid for.",
+      a: "Monthly memberships can be cancelled anytime. You keep access through the billing period you already paid for.",
+    },
+    {
+      q: "What equipment do I need?",
+      a: "Dumbbells and resistance bands. That is it. No machines required.",
     },
   ],
   transform: [
