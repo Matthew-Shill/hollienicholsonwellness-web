@@ -67,12 +67,38 @@ export default function HomePage() {
             />
           </div>
         </div>
-        <div className="border-t border-ink/10">
-          <p className="mx-auto max-w-6xl px-5 py-3 text-center text-[10px] font-semibold tracking-[0.28em] uppercase text-ink/55 sm:px-8 lg:px-12 sm:text-left">
-            Progressive strength{" "}
-            <span className="mx-2 text-ink/25">/</span> Practical nutrition{" "}
-            <span className="mx-2 text-ink/25">/</span> Real life
-          </p>
+      </section>
+
+      {/* Trust strip — pink credentials bar */}
+      <section className="bg-blush-deep text-cream" aria-label="Credentials">
+        <div className="mx-auto grid max-w-6xl gap-8 px-5 py-10 sm:grid-cols-2 sm:gap-6 sm:px-8 lg:grid-cols-4 lg:gap-4 lg:px-12 lg:py-12">
+          {[
+            { value: "1,000+", label: "Women coached since 2020" },
+            { value: "20 years", label: "Of training experience" },
+            {
+              value: (
+                <>
+                  Trainer +
+                  <br />
+                  Nutrition Coach
+                </>
+              ),
+              label: "Former teacher",
+            },
+            {
+              value: "Keynote Speaker",
+              label: "Workplaces, schools, women's events",
+            },
+          ].map((item) => (
+            <div key={item.label} className="text-center">
+              <p className="font-serif text-2xl leading-tight tracking-tight sm:text-[1.65rem]">
+                {item.value}
+              </p>
+              <p className="mt-2 text-[10px] font-semibold tracking-[0.22em] uppercase text-cream/80">
+                {item.label}
+              </p>
+            </div>
+          ))}
         </div>
       </section>
 
