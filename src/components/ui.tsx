@@ -20,12 +20,12 @@ export function Button({
     teal:
       "bg-teal text-cream border-teal hover:bg-teal-deep hover:border-teal-deep",
     ghost:
-      "bg-transparent text-current border-current hover:bg-teal hover:text-cream hover:border-teal",
+      "bg-transparent text-current border-current hover:bg-ink hover:text-cream hover:border-ink",
     light:
-      "bg-cream text-ink border-cream hover:bg-teal hover:text-cream hover:border-teal",
+      "bg-cream text-ink border-cream hover:bg-white",
   }[variant];
 
-  const classNameFull = `inline-flex items-center justify-center border px-6 py-3.5 text-[11px] font-semibold tracking-[0.2em] uppercase transition-colors duration-300 ${styles} ${className}`;
+  const classNameFull = `inline-flex items-center justify-center border px-6 py-3.5 text-[11px] font-semibold tracking-[0.18em] uppercase transition-colors duration-300 ${styles} ${className}`;
   const external = href.startsWith("http://") || href.startsWith("https://");
 
   if (external) {
@@ -58,7 +58,7 @@ export function Eyebrow({
   return (
     <p
       className={`text-[11px] font-semibold tracking-[0.28em] uppercase ${
-        light ? "text-teal" : "text-teal-deep"
+        light ? "text-teal" : "text-ink/55"
       }`}
     >
       {children}
@@ -79,5 +79,17 @@ export function Section({
     <section id={id} className={`px-5 sm:px-8 lg:px-12 ${className}`}>
       <div className="mx-auto max-w-6xl">{children}</div>
     </section>
+  );
+}
+
+export function IconMark({
+  children,
+}: {
+  children: ReactNode;
+}) {
+  return (
+    <div className="flex h-12 w-12 items-center justify-center text-ink">
+      {children}
+    </div>
   );
 }

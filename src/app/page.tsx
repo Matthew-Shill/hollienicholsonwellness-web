@@ -1,258 +1,269 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Faq } from "@/components/Faq";
-import { ContactForm } from "@/components/Forms";
-import { Button, Eyebrow, Section } from "@/components/ui";
-import { faqs, site, testimonials } from "@/lib/site";
+import { LeadForm } from "@/components/Forms";
+import { Button, Eyebrow, IconMark, Section } from "@/components/ui";
+import { faqs, methodPillars, site, testimonials } from "@/lib/site";
 
-const offerings = [
+const planPoints = [
   {
-    name: "STRONG Collective",
-    eyebrow: "Core membership",
-    blurb:
-      "Progressive strength programs, live and on-demand workouts, app access, nutrition guidance, and community support for women who are done guessing.",
-    href: "/programs/collective",
-    cta: "Explore membership",
-    image: "/images/hollie-rack.jpg",
-    imagePosition: "center 12%",
+    title: "30–40 minute workouts",
+    detail: "Open the app, press play, get on with your day.",
   },
   {
-    name: "Seasonal programs",
-    eyebrow: "Winter STRONG · Spring STRONG",
-    blurb:
-      "Shorter challenges that introduce our training and nutrition approach — including the 14-Day LeanBody Project and Lift to Lean sessions.",
-    href: "/programs",
-    cta: "See current sessions",
-    image: "/images/hollie-squat.jpg",
-    imagePosition: "center top",
+    title: "Purposeful progression",
+    detail: "A plan that builds week to week — not random workouts.",
   },
   {
-    name: "In-person training",
-    eyebrow: "Noblesville, Indiana",
-    blurb:
-      "Limited 1:1 personal training locally, with supporting at-home programming so the work continues between sessions.",
-    href: "/contact?interest=In-person training",
-    cta: "Ask about availability",
-    image: "/images/hollie-goblet.jpg",
-    imagePosition: "center 20%",
+    title: "Practical nutrition",
+    detail: "Real food habits that work with family dinners and date night.",
   },
   {
-    name: "STRONG Athlete Collective",
-    eyebrow: "Beta · Youth athletes",
-    blurb:
-      "Strength and athletic development for multi-sport kids. Build the athlete, then teach them to use it. Currently in beta — not a paid offer yet.",
-    href: "/athletes",
-    cta: "Join the waitlist",
-    image: "/images/hollie-band.jpg",
-    imagePosition: "center top",
+    title: "Community support",
+    detail: "Coaching and women who show up the same way you do.",
   },
 ] as const;
 
-const pricing = [
-  {
-    name: "Free workout",
-    price: "$0",
-    detail: "Try how Hollie trains before you commit.",
-    href: "/start",
-    cta: "Send me the workout",
-    featured: false,
-  },
-  {
-    name: "LeanBody Challenge",
-    price: "$19",
-    detail: "14 days of follow-along workouts and simple eats.",
-    href: "/programs/lean-body",
-    cta: "Start the challenge",
-    featured: false,
-  },
-  {
-    name: "STRONG Collective",
-    price: "From $79/mo",
-    detail: "The membership. Progressive training, live classes, app, community.",
-    href: "/programs/collective",
-    cta: "Join the Collective",
-    featured: true,
-  },
-] as const;
+function DumbbellIcon() {
+  return (
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden>
+      <path
+        d="M6 8v8M18 8v8M8 10h8M8 14h8M4 10v4M20 10v4"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+function ForkIcon() {
+  return (
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden>
+      <path
+        d="M8 3v7a2 2 0 002 2h0a2 2 0 002-2V3M10 12v9M16 3v6h2a2 2 0 012 2v1a3 3 0 01-3 3h-1v7"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function PeopleIcon() {
+  return (
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden>
+      <path
+        d="M9 11a3 3 0 100-6 3 3 0 000 6zM17 12a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM3.5 20a5.5 5.5 0 0111 0M14 20a4.5 4.5 0 016.5-4"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+const pillarIcons = [<DumbbellIcon key="d" />, <ForkIcon key="f" />, <PeopleIcon key="p" />];
 
 export default function HomePage() {
   return (
     <>
-      {/* 1. Hero — full-bleed. Photo slot: hero lifestyle / Hollie training */}
-      <section className="relative min-h-[92vh] overflow-hidden bg-ink text-cream">
+      {/* Hero — full-bleed, mockup-inspired */}
+      <section className="relative min-h-[88vh] overflow-hidden bg-ink text-cream">
+        {/* Photo slot: hero — Hollie with dumbbells / home gym */}
         <Image
-          src="/images/hero-squat.jpg"
-          alt="Hollie coaching strength training"
+          src="/images/hollie-vip.jpg"
+          alt="Hollie Nicholson training with dumbbells"
           fill
           priority
-          className="object-cover object-[68%_center] opacity-70"
+          className="object-cover object-[60%_center] opacity-75"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/25" />
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-ink/80 to-transparent" />
-
-        <div className="relative mx-auto flex min-h-[92vh] max-w-6xl flex-col justify-end px-5 pb-16 pt-28 sm:px-8 lg:justify-center lg:px-12 lg:pb-24">
-          <div className="max-w-2xl">
-            <div className="animate-rise">
-              <Eyebrow light>Hollie Nicholson Wellness</Eyebrow>
-              <div className="rule-grow mt-4 h-0.5 w-16 bg-teal" />
-            </div>
-            <h1 className="animate-rise-delay mt-6 font-serif text-[3.25rem] leading-[0.95] tracking-tight sm:text-6xl lg:text-7xl">
+        <div className="absolute inset-0 bg-gradient-to-r from-cream via-cream/90 to-cream/20" />
+        <div className="relative mx-auto flex min-h-[88vh] max-w-6xl flex-col justify-end px-5 pb-20 pt-24 sm:px-8 lg:justify-center lg:px-12">
+          <div className="max-w-xl text-ink">
+            <h1 className="animate-rise font-serif text-5xl leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl">
               {site.tagline}
             </h1>
-            <p className="animate-rise-delay-2 mt-6 max-w-lg text-base leading-relaxed text-cream/80 sm:text-lg">
+            <p className="animate-rise-delay mt-6 max-w-md text-base leading-relaxed text-ink/70">
               Progressive strength training and practical nutrition for women
-              35–55 who want muscle, confidence, and routines that fit real
-              life — not another plan that falls apart by Thursday.
+              who want to build muscle, feel confident, and live stronger —
+              without giving up real life.
             </p>
-            <div className="animate-rise-delay-2 mt-10 flex flex-wrap gap-3">
-              <Button href="/programs/collective" variant="teal">
-                Join the Collective
-              </Button>
+            <div className="animate-rise-delay-2 mt-9 flex flex-wrap gap-3">
+              <Button href="/programs/collective">Explore STRONG →</Button>
               <Button href="/start" variant="ghost">
-                Get a free workout
+                Try a Free Workout
               </Button>
             </div>
           </div>
         </div>
-      </section>
-
-      {/* 2. Services / offerings */}
-      <Section id="offerings" className="scroll-mt-24 py-20 lg:py-28">
-        <div className="max-w-2xl">
-          <Eyebrow>What you can join</Eyebrow>
-          <h2 className="mt-4 font-serif text-4xl leading-tight sm:text-5xl">
-            Clear offerings. No guesswork.
-          </h2>
-          <p className="mt-5 text-muted leading-relaxed">
-            STRONG helps women build muscle and sustainable habits through
-            progressive training and coaching. Parents can also explore youth
-            athletic development in beta.
+        <div className="absolute inset-x-0 bottom-0 border-t border-ink/10 bg-cream/80 backdrop-blur-sm">
+          <p className="mx-auto max-w-6xl px-5 py-3 text-center text-[10px] font-semibold tracking-[0.28em] uppercase text-ink/55 sm:px-8 lg:px-12 sm:text-left">
+            Progressive strength{" "}
+            <span className="mx-2 text-ink/25">/</span> Practical nutrition{" "}
+            <span className="mx-2 text-ink/25">/</span> Real life
           </p>
         </div>
+      </section>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-2">
-          {offerings.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="group grid overflow-hidden border border-ink/10 bg-paper transition-colors hover:border-teal/50"
-            >
-              <div className="relative aspect-[16/10]">
-                {/* Photo slot: {item.name} */}
-                <Image
-                  src={item.image}
-                  alt=""
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                  style={{ objectPosition: item.imagePosition }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink/50 to-transparent" />
-                <p className="absolute bottom-4 left-5 text-[11px] font-semibold tracking-[0.22em] uppercase text-cream">
-                  {item.eyebrow}
-                </p>
-              </div>
-              <div className="p-7 sm:p-8">
-                <h3 className="font-serif text-3xl">{item.name}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted">
-                  {item.blurb}
-                </p>
-                <p className="mt-6 text-[11px] font-semibold tracking-[0.2em] uppercase text-teal">
-                  {item.cta} →
-                </p>
-              </div>
-            </Link>
-          ))}
-        </div>
+      <Section className="py-20 text-center lg:py-24">
+        <Eyebrow>Same effort. A clearer outcome.</Eyebrow>
+        <h2 className="mx-auto mt-4 max-w-2xl font-serif text-4xl leading-tight sm:text-5xl">
+          You&apos;re putting in the work. Let&apos;s make it count.
+        </h2>
+        <p className="mx-auto mt-5 max-w-xl text-muted leading-relaxed">
+          You do not need another extreme reset. You need progressive lifting, a
+          simple way to eat, and enough support to actually stay with it.
+        </p>
       </Section>
 
-      {/* 3. Testimonials */}
-      <section className="bg-ink text-cream">
-        <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
-          <Eyebrow light>Results from real women</Eyebrow>
-          <h2 className="mt-4 max-w-xl font-serif text-4xl sm:text-5xl">
-            Stronger looks different on everyone.
-          </h2>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {testimonials.slice(0, 3).map((t) => (
-              <blockquote
-                key={t.name}
-                className="border border-white/15 bg-ink p-7"
-              >
-                <p className="font-serif text-xl leading-snug text-cream">
-                  “{t.quote}”
+      {/* The STRONG Approach — blush wash like the mockup */}
+      <section id="method" className="scroll-mt-24 bg-blush">
+        <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 lg:px-12 lg:py-24">
+          <div className="text-center">
+            <Eyebrow>The STRONG Approach</Eyebrow>
+            <h2 className="mt-4 font-serif text-4xl sm:text-5xl">
+              Lift. Nourish. Belong.
+            </h2>
+          </div>
+          <div className="mt-14 grid gap-10 md:grid-cols-3 md:gap-8">
+            {methodPillars.map((pillar, i) => (
+              <div key={pillar.name} className="text-center md:text-left">
+                <div className="mx-auto flex justify-center md:justify-start">
+                  <IconMark>{pillarIcons[i]}</IconMark>
+                </div>
+                <h3 className="mt-5 font-serif text-2xl">{pillar.name}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-ink/70">
+                  {pillar.detail}
                 </p>
-                <footer className="mt-6 text-[11px] font-semibold tracking-[0.18em] uppercase text-teal">
-                  {t.name} · {t.role}
-                </footer>
-              </blockquote>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 4. Pricing */}
-      <Section id="pricing" className="scroll-mt-24 py-20 lg:py-28">
-        <div className="max-w-2xl">
-          <Eyebrow>Pricing</Eyebrow>
-          <h2 className="mt-4 font-serif text-4xl sm:text-5xl">
-            Start free. Stay when it fits.
-          </h2>
-          <p className="mt-5 text-muted leading-relaxed">
-            Primary path: a freebie or a short challenge, then the STRONG
-            Collective when you&apos;re ready for the full plan.
-          </p>
+      {/* Clear plan / app section */}
+      <section className="bg-paper">
+        <div className="mx-auto grid max-w-6xl items-center lg:grid-cols-2">
+          <div className="relative min-h-[420px] lg:min-h-[560px]">
+            {/* Photo slot: app / training plan visual */}
+            <Image
+              src="/images/hollie-blueprint.jpg"
+              alt="Hollie demonstrating a workout from the STRONG plan"
+              fill
+              className="object-cover object-[center_15%]"
+            />
+          </div>
+          <div className="px-5 py-16 sm:px-10 lg:px-14">
+            <Eyebrow>Inside the plan</Eyebrow>
+            <h2 className="mt-4 font-serif text-4xl sm:text-5xl">
+              A clear plan. A stronger you.
+            </h2>
+            <ul className="mt-10 space-y-6">
+              {planPoints.map((item) => (
+                <li key={item.title} className="flex gap-4 border-t border-ink/10 pt-5">
+                  <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-teal" />
+                  <div>
+                    <p className="font-semibold">{item.title}</p>
+                    <p className="mt-1 text-sm text-muted">{item.detail}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-        <div className="mt-14 grid gap-5 lg:grid-cols-3">
-          {pricing.map((tier) => (
-            <div
-              key={tier.name}
-              className={`flex flex-col border p-8 ${
-                tier.featured
-                  ? "border-teal bg-ink text-cream"
-                  : "border-ink/10 bg-paper"
-              }`}
-            >
-              <p
-                className={`text-[11px] font-semibold tracking-[0.22em] uppercase ${
-                  tier.featured ? "text-teal" : "text-muted"
-                }`}
-              >
-                {tier.name}
-              </p>
-              <p className="mt-4 font-serif text-4xl">{tier.price}</p>
-              <p
-                className={`mt-3 flex-1 text-sm leading-relaxed ${
-                  tier.featured ? "text-cream/75" : "text-muted"
-                }`}
-              >
-                {tier.detail}
-              </p>
-              <div className="mt-8">
-                <Button
-                  href={tier.href}
-                  variant={tier.featured ? "teal" : "ghost"}
-                  className="w-full"
-                >
-                  {tier.cta}
-                </Button>
+      </section>
+
+      {/* Testimonials */}
+      <Section id="results" className="scroll-mt-24 py-20 lg:py-28">
+        <div className="text-center">
+          <Eyebrow>From the women inside</Eyebrow>
+          <h2 className="mt-4 font-serif text-4xl sm:text-5xl">
+            Stronger looks different on everyone.
+          </h2>
+        </div>
+        <div className="mt-14 grid gap-10 md:grid-cols-3">
+          {testimonials.slice(0, 3).map((t) => (
+            <blockquote key={t.name} className="text-center">
+              <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-blush font-serif text-2xl text-ink">
+                {t.name.slice(0, 1)}
               </div>
-            </div>
+              <p className="mt-6 font-serif text-xl leading-snug">“{t.quote}”</p>
+              <footer className="mt-5 text-[11px] font-semibold tracking-[0.16em] uppercase text-muted">
+                {t.name} · {t.role}
+              </footer>
+            </blockquote>
           ))}
         </div>
-        <p className="mt-8 text-sm text-muted">
-          Lift to Lean seasonal sessions and limited in-person training are
-          available separately.{" "}
-          <Link href="/programs" className="text-teal underline-offset-2 hover:underline">
-            View all programs
-          </Link>
-          .
-        </p>
       </Section>
 
-      {/* 5. Team */}
-      <section className="bg-paper">
-        <div className="mx-auto grid max-w-6xl items-stretch lg:grid-cols-2">
-          <div className="relative min-h-[480px]">
+      {/* Membership CTA — navy block */}
+      <section className="bg-ink text-cream">
+        <div className="mx-auto grid max-w-6xl items-center lg:grid-cols-2">
+          <div className="px-5 py-16 sm:px-10 lg:px-14 lg:py-24">
+            <h2 className="font-serif text-4xl sm:text-5xl">
+              Make STRONG part of your life.
+            </h2>
+            <p className="mt-5 max-w-md text-sm leading-relaxed text-cream/75">
+              The STRONG Collective is the core membership — progressive
+              programs, live and on-demand workouts, nutrition guidance, and
+              community. Seasonal challenges and limited in-person training are
+              here when you need a shorter on-ramp.
+            </p>
+            <div className="mt-8">
+              <Button href="/programs/collective" variant="light">
+                Explore Membership →
+              </Button>
+            </div>
+            <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+              <Link href="/programs" className="text-teal hover:underline">
+                Current Challenges →
+              </Link>
+              <Link
+                href="/contact?interest=In-person training"
+                className="text-teal hover:underline"
+              >
+                In-Person Training →
+              </Link>
+              <Link href="/athletes" className="text-teal hover:underline">
+                Athlete Collective →
+              </Link>
+            </div>
+          </div>
+          <div className="relative min-h-[360px]">
+            {/* Photo slot: membership lifestyle / gear */}
+            <Image
+              src="/images/hollie-goblet.jpg"
+              alt="Strength training equipment"
+              fill
+              className="object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Meet Hollie */}
+      <section className="bg-cream">
+        <div className="mx-auto grid max-w-6xl items-center lg:grid-cols-2">
+          <div className="order-2 px-5 py-16 sm:px-10 lg:order-1 lg:px-14">
+            <Eyebrow>Meet Hollie</Eyebrow>
+            <h2 className="mt-4 font-serif text-4xl sm:text-5xl">
+              Real experience. A stronger you.
+            </h2>
+            <p className="mt-5 max-w-md text-sm leading-relaxed text-muted">
+              Certified trainer and nutrition coach. Mom of three. About 20
+              years of coaching women through midlife, motherhood, and busy
+              careers. Members say she is real — not an influencer — and she
+              understands juggling work, family, and the body God has given her.
+            </p>
+            <div className="mt-8">
+              <Button href="/about" variant="ghost">
+                More About Hollie →
+              </Button>
+            </div>
+          </div>
+          <div className="relative order-1 min-h-[480px] lg:order-2">
             {/* Photo slot: Hollie portrait */}
             <Image
               src="/images/hollie-portrait.jpg"
@@ -261,144 +272,64 @@ export default function HomePage() {
               className="object-cover object-top"
             />
           </div>
-          <div className="flex flex-col justify-center px-5 py-16 sm:px-10 lg:px-14">
-            <Eyebrow>The coach</Eyebrow>
-            <h2 className="mt-4 font-serif text-4xl sm:text-5xl">
-              Hollie Nicholson
-            </h2>
-            <p className="mt-2 text-[11px] font-semibold tracking-[0.2em] uppercase text-teal">
-              Trainer · Nutrition coach · Mom of three
-            </p>
-            <p className="mt-6 text-sm leading-relaxed text-muted">
-              About 20 years in training. Former teacher. Real life — career,
-              motherhood, and still taking care of the body God has given her.
-              Members say she is not an influencer. She is a coach who gets it.
-            </p>
-            <div className="mt-8">
-              <Button href="/about" variant="ghost">
-                More about Hollie
-              </Button>
-            </div>
-          </div>
         </div>
       </section>
 
-      {/* 6. Contact form */}
-      <Section id="contact" className="scroll-mt-24 py-20 lg:py-28">
-        <div className="grid gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-5">
-            <Eyebrow>Contact</Eyebrow>
-            <h2 className="mt-4 font-serif text-4xl sm:text-5xl">
-              Tell me where you want to start.
+      {/* Lead magnet — blush */}
+      <section className="bg-blush">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-14 sm:px-8 lg:grid-cols-2 lg:px-12 lg:py-16">
+          <div>
+            <h2 className="font-serif text-3xl sm:text-4xl">
+              Your first STRONG workout starts here.
             </h2>
-            <p className="mt-5 text-sm leading-relaxed text-muted">
-              Freebie, Collective, seasonal session, or Athlete waitlist —
-              Hollie replies within 48 hours.
+            <p className="mt-3 text-sm text-ink/70">
+              One free workout and a few tips — try how Hollie trains before you
+              commit to anything.
             </p>
-            <p className="mt-4 text-sm leading-relaxed text-muted">
-              {site.serviceArea}
-            </p>
-            <a
-              href={site.emailHref}
-              className="mt-8 inline-block text-sm font-semibold text-teal hover:text-teal-deep"
-            >
-              {site.email}
-            </a>
           </div>
-          <div className="lg:col-span-6 lg:col-start-7">
-            <ContactForm />
-          </div>
+          <LeadForm
+            kind="free-workout"
+            interest="Free Full-Body Blueprint"
+            cta="Send My Workout →"
+            success="Check your inbox — Hollie will send your workout shortly."
+          />
         </div>
-      </Section>
+      </section>
 
-      {/* 7. FAQ */}
+      {/* FAQ */}
       <section id="faq" className="scroll-mt-24 bg-paper">
         <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
           <div className="grid gap-10 lg:grid-cols-12">
             <div className="lg:col-span-4">
-              <Eyebrow>FAQ</Eyebrow>
-              <h2 className="mt-4 font-serif text-4xl">
-                Common questions, straight answers.
-              </h2>
+              <h2 className="font-serif text-4xl sm:text-5xl">FAQs</h2>
+              <p className="mt-4 text-sm text-muted">
+                Straight answers before you join.
+              </p>
             </div>
             <div className="lg:col-span-7 lg:col-start-6">
-              <Faq items={[...faqs.general, ...faqs.collective]} />
+              <Faq items={faqs.general} />
             </div>
           </div>
         </div>
       </section>
 
-      {/* 8. About / story */}
-      <Section id="about" className="scroll-mt-24 py-20 lg:py-28">
-        <div className="grid gap-12 lg:grid-cols-12 lg:items-end">
-          <div className="lg:col-span-6">
-            <Eyebrow>The story</Eyebrow>
-            <h2 className="mt-4 font-serif text-4xl sm:text-5xl">
-              Built for busy women. Expanding for athletes.
-            </h2>
-          </div>
-          <div className="lg:col-span-5 lg:col-start-8 space-y-4 text-sm leading-relaxed text-muted">
-            <p>
-              Founded by certified personal trainer and nutrition coach Hollie
-              Nicholson, STRONG combines structured workouts, live and on-demand
-              training, nutrition education, and community support.
-            </p>
-            <p>
-              The approach is progressive: a clear plan, purpose, and
-              progression — 30–40 minute workouts, approachable nutrition, and
-              coaching that respects work and family. No exaggerated promises.
-              No influencer fluff.
-            </p>
-            <p>
-              STRONG Athlete Collective is in beta with kids of current members.
-              Philosophy: build the athlete, then teach them to use it.
-            </p>
-          </div>
-        </div>
-      </Section>
-
-      {/* 9. How it works */}
-      <section className="bg-ink text-cream">
-        <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
-          <Eyebrow light>How it works</Eyebrow>
-          <h2 className="mt-4 max-w-xl font-serif text-4xl sm:text-5xl">
-            From first hello to a plan that sticks.
+      {/* Final CTA */}
+      <section className="relative min-h-[50vh] overflow-hidden bg-ink text-cream">
+        {/* Photo slot: closing lifestyle / outdoors */}
+        <Image
+          src="/images/hollie-mint.jpg"
+          alt=""
+          fill
+          className="object-cover object-[center_30%] opacity-45"
+        />
+        <div className="absolute inset-0 bg-ink/50" />
+        <div className="relative mx-auto flex min-h-[50vh] max-w-6xl flex-col items-center justify-center px-5 py-20 text-center sm:px-8">
+          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl">
+            Your next chapter starts STRONG.
           </h2>
-          <div className="mt-14 grid gap-10 sm:grid-cols-3">
-            {[
-              {
-                step: "01",
-                title: "Start somewhere",
-                copy: "Grab the free workout, join a seasonal challenge, or go straight into the Collective.",
-              },
-              {
-                step: "02",
-                title: "Open the app",
-                copy: "Workouts are written and waiting. Thirty to forty minutes. Dumbbells. Done.",
-              },
-              {
-                step: "03",
-                title: "Keep showing up",
-                copy: "Check in, get coached, and let progressive training do what random workouts never did.",
-              },
-            ].map((item) => (
-              <div key={item.step} className="border-t border-teal pt-6">
-                <p className="text-[11px] font-semibold tracking-[0.28em] uppercase text-teal">
-                  {item.step}
-                </p>
-                <h3 className="mt-3 font-serif text-2xl">{item.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-cream/70">
-                  {item.copy}
-                </p>
-              </div>
-            ))}
-          </div>
-          <div className="mt-14 flex flex-wrap gap-3">
-            <Button href="/start" variant="teal">
-              Get the free workout
-            </Button>
-            <Button href="/programs/collective" variant="ghost">
-              Join the Collective
+          <div className="mt-8">
+            <Button href="/programs/collective" variant="light">
+              Find Your Starting Point →
             </Button>
           </div>
         </div>

@@ -17,10 +17,10 @@ export const site = {
 } as const;
 
 export const nav = [
-  { href: "/#offerings", label: "Offerings" },
-  { href: "/#pricing", label: "Pricing" },
-  { href: "/#about", label: "About" },
-  { href: "/#faq", label: "FAQ" },
+  { href: "/#method", label: "The Method" },
+  { href: "/programs", label: "Programs" },
+  { href: "/#results", label: "Results" },
+  { href: "/about", label: "About" },
 ] as const;
 
 export const footerNav = [
@@ -121,14 +121,14 @@ export const methodPillars = [
       "Progressive strength training that reshapes your body without extreme cardio or burnout.",
   },
   {
-    name: "40-20 Protocol",
+    name: "Daily FOUR",
     detail:
-      "A simple daily rhythm: 40-minute strength workouts, 40g of protein per meal, 20g of fiber, and 20 minutes of walking.",
+      "A flexible nutrition approach focused on real food, protein, and habits that survive family dinners.",
   },
   {
-    name: "Daily Four Nutrition",
+    name: "Coaching + Community",
     detail:
-      "Habit-based eating that works with family dinners, date nights, and real life — not against them.",
+      "Expert guidance and accountability from Hollie and women doing the same work — not another empty feed.",
   },
 ] as const;
 
@@ -233,34 +233,38 @@ export const shop = {
 export const faqs = {
   general: [
     {
-      q: "Is this for beginners?",
-      a: "Yes. Every workout includes coaching, form cues, and modifications. Whether you are new to lifting or have been training for years, you will know exactly what to do.",
+      q: "What is STRONG?",
+      a: "STRONG is progressive strength training and practical nutrition coaching for busy women — structured workouts, app access, and real coaching so you stop piecing random plans together.",
     },
     {
-      q: "What equipment do I need?",
-      a: "Dumbbells and resistance bands. That is it. No gym, no machines, no fancy setup. If you can spare a corner of a room, you can train.",
+      q: "Who is STRONG for?",
+      a: "Primarily women ages 35–55 who want to build muscle, improve body composition, and establish routines that fit real life. Parents can also explore Athlete Collective for youth athletes (currently in beta).",
     },
     {
-      q: "How long are the workouts?",
-      a: "Most sessions are 30–40 minutes. LeanBody workouts are 30 minutes or less. Open the app, press play, and get on with your day.",
+      q: "Do I need a gym?",
+      a: "No. Dumbbells and resistance bands at home are enough. Most sessions are 30–40 minutes.",
+    },
+    {
+      q: "How is this different from YouTube or Peloton?",
+      a: "Those are libraries of unrelated workouts. STRONG is a progressive plan that builds week to week, with Hollie coaching and a community doing the same work.",
     },
     {
       q: "What if I miss a day?",
-      a: "Life happens. The plan is built for busy weeks. You pick back up, follow the next workout, and keep going. Consistency over perfection.",
+      a: "Life happens. Pick back up with the next workout. Consistency over perfection.",
     },
   ],
   collective: [
     {
       q: "When are live workouts?",
-      a: "Monday, Tuesday, and Friday at 5:45 AM ET on Zoom. If you cannot make it live, the recording is waiting for you in the app.",
-    },
-    {
-      q: "How is this different from Peloton or YouTube?",
-      a: "Those are libraries of random workouts. STRONG is a progressive plan that builds week to week, with a real coach (Hollie) and a community of women doing the same work.",
+      a: "Monday, Tuesday, and Friday at 5:45 AM ET on Zoom. If you cannot make it live, the recording is waiting in the app.",
     },
     {
       q: "Can I cancel?",
-      a: "Monthly memberships can be cancelled anytime. You will keep access through the billing period you already paid for.",
+      a: "Monthly memberships can be cancelled anytime. You keep access through the billing period you already paid for.",
+    },
+    {
+      q: "What equipment do I need?",
+      a: "Dumbbells and resistance bands. That is it. No machines required.",
     },
   ],
   transform: [

@@ -1,13 +1,12 @@
 /*
-  Brand palette — Hollie Nicholson Wellness (brief / form redesign)
-  Driven by her demo request: navy + cream + teal. No pink/green washes.
-  - ink (navy): #0f2d4d — primary
-  - cream: #f6f2ea — secondary / page ground
-  - teal: #2fa7b3 — accent (CTAs, rules, Collective highlights)
-  - paper: #fbf8f3 — elevated surfaces
-  Typography: Fraunces (display) + Figtree (body) — distinct from original demo.
-  Header wordmark: public/brand/logo.png (swap when final logo is chosen).
-  Collective mark: public/brand/strong-cross.jpg (not final).
+  Brand palette — Design 3 (inspo mockup + demo brief)
+  - ink (navy): #0f2d4d
+  - cream: #f6f2ea
+  - blush: #e8d5d3 — soft dusty rose washes from Hollie's inspo mockup
+  - blush-deep: #b85c68 — stronger accent when needed
+  - teal: #2fa7b3 — Collective / STRONG accent
+  Typography: Fraunces + Figtree
+  Header wordmark: public/brand/logo.png (swap when final).
 */
 
 @import "tailwindcss";
@@ -18,6 +17,8 @@
   --paper: #fbf8f3;
   --stone: #e2ddd4;
   --muted: #5c6b75;
+  --blush: #e8d5d3;
+  --blush-deep: #b85c68;
   --teal: #2fa7b3;
   --teal-deep: #248a94;
 }
@@ -28,6 +29,8 @@
   --color-paper: var(--paper);
   --color-stone: var(--stone);
   --color-muted: var(--muted);
+  --color-blush: var(--blush);
+  --color-blush-deep: var(--blush-deep);
   --color-teal: var(--teal);
   --color-teal-deep: var(--teal-deep);
   --font-sans: var(--font-figtree);
@@ -45,14 +48,14 @@ body {
 }
 
 ::selection {
-  background: var(--teal);
-  color: white;
+  background: var(--ink);
+  color: var(--cream);
 }
 
 @keyframes rise {
   from {
     opacity: 0;
-    transform: translateY(1.25rem);
+    transform: translateY(1.1rem);
   }
   to {
     opacity: 1;
@@ -60,37 +63,22 @@ body {
   }
 }
 
-@keyframes rule-in {
-  from {
-    transform: scaleX(0);
-  }
-  to {
-    transform: scaleX(1);
-  }
-}
-
 .animate-rise {
-  animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: rise 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .animate-rise-delay {
-  animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+  animation: rise 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
 }
 
 .animate-rise-delay-2 {
-  animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
-}
-
-.rule-grow {
-  transform-origin: left;
-  animation: rule-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+  animation: rise 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.24s both;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .animate-rise,
   .animate-rise-delay,
-  .animate-rise-delay-2,
-  .rule-grow {
+  .animate-rise-delay-2 {
     animation: none;
   }
 }
