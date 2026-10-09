@@ -196,8 +196,8 @@ export default function HomePage() {
 
       {/* Membership CTA — navy block */}
       <section className="bg-ink text-cream">
-        <div className="mx-auto grid max-w-6xl items-center lg:grid-cols-2">
-          <div className="px-5 py-16 sm:px-10 lg:px-14 lg:py-24">
+        <div className="mx-auto grid max-w-6xl lg:grid-cols-2">
+          <div className="flex flex-col justify-center px-5 py-16 sm:px-10 lg:px-14 lg:py-24">
             <h2 className="font-serif text-4xl sm:text-5xl">
               Make STRONG part of your life.
             </h2>
@@ -227,13 +227,12 @@ export default function HomePage() {
               </Link>
             </div>
           </div>
-          <div className="relative min-h-[360px]">
-            {/* Photo slot: membership lifestyle / gear */}
+          <div className="relative min-h-[520px] lg:min-h-[640px]">
             <Image
               src="/images/hollie-goblet.jpg"
-              alt="Strength training equipment"
+              alt="Hollie Nicholson holding a dumbbell"
               fill
-              className="object-cover"
+              className="object-cover object-[center_12%]"
             />
           </div>
         </div>
