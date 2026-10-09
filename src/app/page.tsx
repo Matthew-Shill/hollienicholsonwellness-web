@@ -1,3 +1,4 @@
+import { Dumbbell, Utensils, Users } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { AppPhones } from "@/components/AppPhones";
@@ -25,69 +26,10 @@ const planPoints = [
   },
 ] as const;
 
-/** Icons matched to Hollie's Method mockup: angled dumbbell, fork+knife, three people */
-function DumbbellIcon() {
-  return (
-    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden>
-      <g
-        stroke="currentColor"
-        strokeWidth="1.75"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        transform="rotate(-38 16 16)"
-      >
-        <rect x="3.5" y="11" width="4" height="10" rx="1" />
-        <rect x="24.5" y="11" width="4" height="10" rx="1" />
-        <rect x="7" y="12.5" width="3" height="7" rx="0.75" />
-        <rect x="22" y="12.5" width="3" height="7" rx="0.75" />
-        <path d="M10 16h12" />
-      </g>
-    </svg>
-  );
-}
-
-function ForkIcon() {
-  return (
-    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden>
-      <g
-        stroke="currentColor"
-        strokeWidth="1.75"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M11 6v7a2 2 0 002 2h0a2 2 0 002-2V6" />
-        <path d="M13 15v11" />
-        <path d="M10 6v3M13 6v3M16 6v3" />
-        <path d="M20 6v8h1.5a2 2 0 012 2v1.5A3.5 3.5 0 0120 21v2" />
-      </g>
-    </svg>
-  );
-}
-
-function PeopleIcon() {
-  return (
-    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden>
-      <g
-        stroke="currentColor"
-        strokeWidth="1.75"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <circle cx="16" cy="11" r="3.25" />
-        <path d="M9.5 24.5a6.5 6.5 0 0113 0" />
-        <circle cx="8.5" cy="12.5" r="2.4" />
-        <path d="M3.5 24a5 5 0 015.8-4.9" />
-        <circle cx="23.5" cy="12.5" r="2.4" />
-        <path d="M22.7 19.1A5 5 0 0128.5 24" />
-      </g>
-    </svg>
-  );
-}
-
 const pillarIcons = [
-  <DumbbellIcon key="d" />,
-  <ForkIcon key="f" />,
-  <PeopleIcon key="p" />,
+  <Dumbbell key="d" className="-rotate-[35deg]" size={30} strokeWidth={1.75} />,
+  <Utensils key="f" size={28} strokeWidth={1.75} />,
+  <Users key="p" size={30} strokeWidth={1.75} />,
 ];
 
 export default function HomePage() {
